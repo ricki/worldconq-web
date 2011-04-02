@@ -8,10 +8,16 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.extension" value="" />
 
-	<package name="worldconq-web" extends="struts-default">
+	<package name="worldconq-web" namespace="/" extends="struts-default">
+
+		<default-action-ref name="index" />
 
 		<action name="index">
 			<result>/index.jsp</result>
+		</action>
+
+		<action name="login" class="com.umbrella.worldconq.actions.LoginAction" method="execute">
+			<result name="*">/index.jsp</result>
 		</action>
 
 	</package>
