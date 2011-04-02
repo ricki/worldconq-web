@@ -18,13 +18,15 @@ public class LoginAction extends WorldConqAction {
 				getPassword());
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			this.addActionError("Error con el servidor remoto.");
+			session.remove("app");
 			return ERROR;
 		} catch (WrongLoginException e) {
 			this.addActionError("Usuario o contraseña incorrectos.");
 			return ERROR;
 		}
 		session.put("user", getUsername());
-		this.addActionMessage("Bienvenido <b>" + getUsername() + "</b>");
+		this.addActionMessage("Bienvenido " + getUsername());
 		return SUCCESS;
 	}
 

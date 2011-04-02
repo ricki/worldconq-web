@@ -26,12 +26,8 @@ public abstract class WorldConqAction extends ActionSupport implements
 	public WorldConqWebApp getApp() {
 		WorldConqWebApp app = (WorldConqWebApp) session.get("app");
 		if (app == null) {
-			try {
-				app = new WorldConqWebApp();
-				session.put("app", app);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			app = new WorldConqWebApp();
+			session.put("app", app);
 		}
 		return app;
 	}

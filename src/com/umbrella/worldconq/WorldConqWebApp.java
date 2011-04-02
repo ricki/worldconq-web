@@ -1,6 +1,10 @@
 package com.umbrella.worldconq;
 
 import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.UnknownHostException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import com.umbrella.worldconq.comm.ClientAdapter;
 import com.umbrella.worldconq.comm.ServerAdapter;
@@ -14,18 +18,34 @@ public class WorldConqWebApp {
 	ServerAdapter serverAdapter = null;
 	ClientAdapter clientAdapter = null;
 
-	public WorldConqWebApp() throws Exception {
-		clientAdapter = new ClientAdapter();
+	public WorldConqWebApp() {
+		try {
+			clientAdapter = new ClientAdapter();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		serverAdapter = new ServerAdapter();
-		serverAdapter.setRemoteInfo(
-			"Server",
-			InetAddress.getByName("161.67.106.74"),
-			1099);
+		try {
+			serverAdapter.setRemoteInfo(
+				"Server",
+				InetAddress.getByName("localhost"),
+				1099);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 
 		gameManager = new GameManager(serverAdapter, clientAdapter);
 		userManager = new UserManager(serverAdapter, gameManager, clientAdapter);
 		gameManager.setUserManager(userManager);
-
+		try {
+			serverAdapter.connect();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
