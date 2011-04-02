@@ -20,9 +20,11 @@ public class LoginAction extends WorldConqAction {
 			e.printStackTrace();
 			return ERROR;
 		} catch (WrongLoginException e) {
+			this.addActionError("Usuario o contraseña incorrectos.");
 			return ERROR;
 		}
 		session.put("user", getUsername());
+		this.addActionMessage("Bienvenido <b>" + getUsername() + "</b>");
 		return SUCCESS;
 	}
 

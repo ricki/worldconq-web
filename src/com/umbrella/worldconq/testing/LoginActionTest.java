@@ -50,10 +50,12 @@ public class LoginActionTest extends TestCase {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-		assertEquals(result, Action.SUCCESS);
+		assertEquals(Action.SUCCESS, result);
 		assertEquals("ricki",
 				action.getApp().getUserManager().getSession().getUser());
 		assertEquals("ricki", action.getSession().get("user"));
+		assertEquals(0, action.getActionErrors().size());
+		assertEquals(1, action.getActionMessages().size());
 	}
 
 	public void testLoginError() {
@@ -77,9 +79,11 @@ public class LoginActionTest extends TestCase {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-		assertEquals(result, Action.ERROR);
+		assertEquals(Action.ERROR, result);
 		assertNull(action.getApp().getUserManager().getSession());
 		assertFalse(action.getSession().containsKey("user"));
+		assertEquals(1, action.getActionErrors().size());
+		assertEquals(0, action.getActionMessages().size());
 	}
 
 	class UserManagerMock extends UserManager {
