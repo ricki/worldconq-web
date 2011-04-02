@@ -1,12 +1,18 @@
 package com.umbrella.worldconq.testing;
 
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import junit.framework.TestCase;
 
 import com.opensymphony.xwork2.Action;
 import com.umbrella.worldconq.actions.LoginAction;
+import com.umbrella.worldconq.domain.Session;
+import com.umbrella.worldconq.domain.UserManager;
+
+import exceptions.WrongLoginException;
 
 public class LoginActionTest extends TestCase {
 
@@ -29,8 +35,10 @@ public class LoginActionTest extends TestCase {
 		try {
 			app = new WorldConqWebAppMock();
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
+		app.setUserManager(new UserManagerMock());
 		session.put("app", app);
 		action.setSession(session);
 		action.setUsername("ricki");
@@ -39,12 +47,13 @@ public class LoginActionTest extends TestCase {
 		try {
 			result = action.execute();
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 		assertEquals(result, Action.SUCCESS);
 		assertEquals("ricki",
 				action.getApp().getUserManager().getSession().getUser());
-		assertEquals("ricki", session.get("user"));
+		assertEquals("ricki", action.getSession().get("user"));
 	}
 
 	public void testLoginError() {
@@ -53,8 +62,10 @@ public class LoginActionTest extends TestCase {
 		try {
 			app = new WorldConqWebAppMock();
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
+		app.setUserManager(new UserManagerMock());
 		session.put("app", app);
 		action.setSession(session);
 		action.setUsername("paco");
@@ -63,9 +74,29 @@ public class LoginActionTest extends TestCase {
 		try {
 			result = action.execute();
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 		assertEquals(result, Action.ERROR);
 		assertNull(action.getApp().getUserManager().getSession());
+		assertFalse(action.getSession().containsKey("user"));
 	}
+
+	class UserManagerMock extends UserManager {
+
+		public UserManagerMock() {
+			super(null);
+		}
+
+		@Override
+		public void createSession(String login, String passwd) throws RemoteException, WrongLoginException {
+			if (!"ricki".equals(login) || !"asdf".equals(passwd)) {
+				throw new WrongLoginException("Invalid user");
+			}
+
+			mSession = new Session(UUID.randomUUID(), "ricki");
+		}
+
+	}
+
 }

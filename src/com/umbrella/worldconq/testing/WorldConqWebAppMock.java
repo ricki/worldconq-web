@@ -5,15 +5,19 @@ import com.umbrella.worldconq.domain.UserManager;
 
 class WorldConqWebAppMock extends WorldConqWebApp {
 
-	UserManager usrMgr;
+	UserManager userManager;
 
 	public WorldConqWebAppMock() throws Exception {
 	}
 
 	@Override
+	public void setUserManager(UserManager userManager) {
+		this.userManager = userManager;
+	}
+
+	@Override
 	public UserManager getUserManager() {
-		if (usrMgr == null) usrMgr = new UserManagerMock();
-		return usrMgr;
+		return userManager;
 	}
 
 }
