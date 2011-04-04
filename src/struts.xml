@@ -20,6 +20,10 @@
 			<result name="*">/index.jsp</result>
 		</action>
 
+		<action name="register">
+			<result>/register.jsp</result>
+		</action>
+
 	</package>
 
 </struts>
