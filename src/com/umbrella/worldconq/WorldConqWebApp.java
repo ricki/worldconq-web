@@ -78,4 +78,20 @@ public class WorldConqWebApp {
 		this.gameManager = gameManager;
 	}
 
+	public ServerAdapter getServerAdapter() {
+		return serverAdapter;
+	}
+
+	public void setServerAdapter(ServerAdapter serverAdapter) {
+		this.serverAdapter = serverAdapter;
+	}
+
+	public ClientAdapter getClientAdapter() {
+		return clientAdapter;
+	}
+
+	public void setClientAdapter(ClientAdapter clientAdapter) {
+		this.clientAdapter = clientAdapter;
+	}
+
 }
