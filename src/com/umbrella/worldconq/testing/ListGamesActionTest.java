@@ -26,7 +26,7 @@ public class ListGamesActionTest extends TestCase {
 		assertNull(action.getCurrentGames());
 	}
 
-	public void testLoginSuccess() {
+	public void testListGamesSuccess() {
 		Map<String, Object> session = new HashMap<String, Object>();
 		WorldConqWebAppMock app = null;
 		try {
