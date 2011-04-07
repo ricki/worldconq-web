@@ -1,10 +1,12 @@
 package com.umbrella.worldconq.actions;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import com.umbrella.worldconq.domain.GameListModel;
 
 import domain.GameInfo;
+import exceptions.InvalidSessionException;
 
 public class ListGamesAction extends WorldConqAction {
 
@@ -18,7 +20,17 @@ public class ListGamesAction extends WorldConqAction {
 
 	@Override
 	public String execute() {
-
+		try {
+			getApp().getGameManager().updateGameList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			this.addActionError("Error con el servidor remoto.");
+			return ERROR;
+		} catch (InvalidSessionException e) {
+			this.addActionError("Error sesión inválida.");
+			e.printStackTrace();
+			return ERROR;
+		}
 		currentGameList = getApp().getGameManager().getCurrentGameListModel();
 		currentGames = new ArrayList<GameInfo>();
 		for (int i = 0; i < currentGameList.getRowCount(); i++) {

@@ -1,5 +1,6 @@
 package com.umbrella.worldconq.testing;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import com.umbrella.worldconq.actions.ListGamesAction;
 import com.umbrella.worldconq.domain.GameManager;
 
 import domain.GameInfo;
+import exceptions.InvalidSessionException;
 
 public class ListGamesActionTest extends TestCase {
 	ListGamesAction action;
@@ -69,14 +71,19 @@ public class ListGamesActionTest extends TestCase {
 		assertTrue(action.getOpenGames().get(0).getTurnTime() == 3);
 		assertTrue(action.getOpenGames().get(0).getDefenseTime() == 2);
 		assertTrue(action.getOpenGames().get(0).getNegotiationTime() == 1);
-
 		assertEquals(0, action.getActionErrors().size());
+
 	}
 
 	class GameManagerMock extends GameManager {
 
 		public GameManagerMock(WorldConqWebAppMock app) {
 			super(app.getServerAdapter(), app.getClientAdapter());
+
+		}
+
+		@Override
+		public void updateGameList() throws RemoteException, InvalidSessionException {
 			ArrayList<String> players = new ArrayList<String>();
 			players.add("Laura");
 			GameInfo partida1 = new GameInfo(UUID.randomUUID(), "Partida 1",
@@ -94,6 +101,5 @@ public class ListGamesActionTest extends TestCase {
 			openGamesArray.add(partida2);
 			this.getOpenGameListModel().setData(openGamesArray);
 		}
-
 	}
 }
