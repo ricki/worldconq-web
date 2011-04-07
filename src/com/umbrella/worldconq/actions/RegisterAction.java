@@ -2,6 +2,7 @@ package com.umbrella.worldconq.actions;
 
 import java.rmi.RemoteException;
 
+import com.umbrella.worldconq.exceptions.EmptyStringException;
 import com.umbrella.worldconq.exceptions.MalformedEmailException;
 
 import exceptions.UserAlreadyExistsException;
@@ -23,20 +24,19 @@ public class RegisterAction extends WorldConqAction {
 			getApp().getUserManager().registerUser(getUsername(),
 				getPassword(), getEmail());
 		} catch (RemoteException e) {
-			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
 			return ERROR;
 		} catch (UserAlreadyExistsException e) {
-			e.printStackTrace();
 			this.addActionError("El usuario ya existe.");
 			return ERROR;
 		} catch (MalformedEmailException e) {
-			e.printStackTrace();
 			this.addActionError("El correo es erroneo.");
 			return ERROR;
+		} catch (EmptyStringException e) {
+			this.addActionError("No debe dejar ningún campo vacío, por favor rellénelos.");
+			return ERROR;
 		}
-		session.put("user", getUsername());
 		this.addActionMessage("Usuario " + getUsername() + " registrado.");
 		return SUCCESS;
 	}

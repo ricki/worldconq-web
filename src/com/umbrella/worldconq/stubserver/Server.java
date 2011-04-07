@@ -32,7 +32,7 @@ import exceptions.WrongLoginException;
 public class Server extends UnicastRemoteObject implements IServer {
 
 	private static final long serialVersionUID = 8434201731175738674L;
-	private final int puerto = 3234;
+	private final int puerto = 1099;
 	private final String miIP;
 	private final Registry reg;
 	private Remote callback;
@@ -219,7 +219,7 @@ public class Server extends UnicastRemoteObject implements IServer {
 		System.out.println("IP=" + miIP + ", y puerto=" + puerto);
 
 		reg = LocateRegistry.createRegistry(puerto);
-		reg.rebind("WorldConqStubServer", this);
+		reg.rebind("Server", this);
 
 		System.out.println("Esperando peticiones...");
 	}

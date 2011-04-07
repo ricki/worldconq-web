@@ -6,11 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WorldConq - Register</title>
-<s:if test="%{ #session.user != null}">
-	<%
-		response.sendRedirect("/worldconq-web/index.jsp");
-	%>
-</s:if>
 </head>
 <body>
 	<header>
@@ -25,13 +20,13 @@
 
 		<s:actionmessage />
 		<s:actionerror />
-
-		<s:form action="register">
+			
+		<s:form action="do_register">
 			<s:textfield name="username" label="Usuario" />
 			<s:password name="password" label="Contraseña" />
 			<s:textfield name="email" label="Email" />
 			<s:submit />
-		</s:form>
+		</s:form>		
 
 	</s:div>
 
