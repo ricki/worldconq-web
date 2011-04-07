@@ -19,6 +19,10 @@
 		<action name="login" class="com.umbrella.worldconq.actions.LoginAction" method="execute">
 			<result name="*">/index.jsp</result>
 		</action>
+		
+		<action name="createGame">
+			<result>/createGame.jsp</result>
+		</action>
 
 	</package>
 
