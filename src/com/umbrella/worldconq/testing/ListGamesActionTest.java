@@ -10,6 +10,8 @@ import junit.framework.TestCase;
 
 import com.opensymphony.xwork2.Action;
 import com.umbrella.worldconq.actions.ListGamesAction;
+import com.umbrella.worldconq.comm.ClientAdapter;
+import com.umbrella.worldconq.comm.ServerAdapter;
 import com.umbrella.worldconq.domain.GameManager;
 
 import domain.GameInfo;
@@ -37,7 +39,12 @@ public class ListGamesActionTest extends TestCase {
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-		app.setGameManager(new GameManagerMock(app));
+		try {
+			app.setGameManager(new GameManagerMock(app));
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+			fail(e1.getMessage());
+		}
 		session.put("app", app);
 		action.setSession(session);
 		String result = null;
@@ -77,8 +84,8 @@ public class ListGamesActionTest extends TestCase {
 
 	class GameManagerMock extends GameManager {
 
-		public GameManagerMock(WorldConqWebAppMock app) {
-			super(app.getServerAdapter(), app.getClientAdapter());
+		public GameManagerMock(WorldConqWebAppMock app) throws RemoteException {
+			super(new ServerAdapter(), new ClientAdapter());
 
 		}
 
