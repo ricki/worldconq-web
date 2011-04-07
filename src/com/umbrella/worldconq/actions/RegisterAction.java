@@ -34,7 +34,7 @@ public class RegisterAction extends WorldConqAction {
 			this.addActionError("El correo es erroneo.");
 			return ERROR;
 		} catch (EmptyStringException e) {
-			this.addActionError("No debe dejar ningún campo vacío, por favor rellénelos.");
+			this.addActionError("No debe dejar ningÃºn campo vacÃ­o, por favor rellÃ©nelos.");
 			return ERROR;
 		}
 		this.addActionMessage("Usuario " + getUsername() + " registrado.");
