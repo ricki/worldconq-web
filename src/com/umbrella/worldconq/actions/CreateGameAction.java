@@ -32,8 +32,10 @@ public class CreateGameAction extends WorldConqAction {
 	@Override
 	public String execute() {
 		try {
+
 			getApp().getGameManager().createGame(getName(), getDescription(),
-				getGameSessions(), getTurnTime(), getDefTime(), getNegTime());
+							getGameSessions(), getTurnTime(), getDefTime(),
+				getNegTime());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
@@ -45,18 +47,15 @@ public class CreateGameAction extends WorldConqAction {
 		} catch (InvalidSessionException e) {
 			this.addActionError("Session incorrecta.");
 			return ERROR;
-		} catch (NullPointerException e) {
-			this.addActionError("Error al crear partida.");
-			return ERROR;
 		} catch (EmptyStringException e) {
-			this.addActionError("Error al crear partida.");
+			this.addActionError("Error al crear partida2.");
 			return ERROR;
 		} catch (NegativeValueException e) {
-			this.addActionError("Error al crear partida.");
+			this.addActionError("Error al crear partida3.");
 			return ERROR;
 		}
 
-		this.addActionMessage("Partida creada correctamente");
+		this.addActionMessage("Partida creada correctamente.");
 		return SUCCESS;
 	}
 
@@ -103,6 +102,10 @@ public class CreateGameAction extends WorldConqAction {
 
 	public void setNegTime(int i) {
 		this.negTime = i;
+	}
+
+	public void setGameSessions(ArrayList<Calendar> i) {
+		this.gameSessions = i;
 	}
 
 }

@@ -46,16 +46,23 @@ public class CreateGameActionTest extends TestCase {
 		}
 		GameManagerMock game;
 		try {
-			game = new GameManagerMock();
+			ServerAdapter srvAdp = new ServerAdapter();
+			ClientAdapter cliAdp = new ClientAdapter();
+			game = new GameManagerMock(srvAdp, cliAdp);
 			app.setGameManager(game);
 
 			session.put("app", app);
+			action.setSession(session);
 			action.setName("Nueva partida");
-			action.setDescription("Descripción partida");
+			action.setDescription("datos partida");
 			action.setTurnTime(60);
 			action.setDefTime(60);
 			action.setNegTime(30);
-			//action.setGameSessions();
+
+			ArrayList<Calendar> calendario = new ArrayList<Calendar>();
+			calendario.add(Calendar.getInstance());
+
+			action.setGameSessions(calendario);
 			String result = null;
 			try {
 				result = action.execute();
@@ -63,12 +70,56 @@ public class CreateGameActionTest extends TestCase {
 				e.printStackTrace();
 				fail(e.getMessage());
 			}
-			assertEquals(Action.SUCCESS, result);
 
+			assertEquals(Action.SUCCESS, result);
 			assertEquals(0, action.getActionErrors().size());
 			assertEquals(1, action.getActionMessages().size());
 			assertEquals("Partida creada correctamente.",
-				action.getActionMessages().toArray()[0]);
+							action.getActionMessages().toArray()[0]);
+			assertTrue(game.isCreateGameCall);
+		} catch (RemoteException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	public void testCreateGameActionError() {
+		Map<String, Object> session = new HashMap<String, Object>();
+		WorldConqWebAppMock app = null;
+		try {
+			app = new WorldConqWebAppMock();
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+		GameManagerMock game;
+		try {
+			ServerAdapter srvAdp = new ServerAdapter();
+			ClientAdapter cliAdp = new ClientAdapter();
+			game = new GameManagerMock(srvAdp, cliAdp);
+			app.setGameManager(game);
+
+			session.put("app", app);
+			action.setSession(session);
+			action.setName("nombre erroneo");
+			action.setDescription("datos partida");
+			action.setTurnTime(60);
+			action.setDefTime(60);
+			action.setNegTime(30);
+			ArrayList<Calendar> calendario = new ArrayList<Calendar>();
+			calendario.add(Calendar.getInstance());
+
+			action.setGameSessions(calendario);
+			String result = null;
+			try {
+				result = action.execute();
+			} catch (Exception e) {
+				e.printStackTrace();
+				fail(e.getMessage());
+			}
+			assertEquals(Action.ERROR, result);
+			assertNull(action.getApp().getUserManager().getSession());
+			assertFalse(action.getSession().containsKey("user"));
+			assertEquals(1, action.getActionErrors().size());
+			assertEquals(0, action.getActionMessages().size());
 			assertTrue(game.isCreateGameCall);
 		} catch (RemoteException e1) {
 			e1.printStackTrace();
@@ -79,8 +130,8 @@ public class CreateGameActionTest extends TestCase {
 
 		boolean isCreateGameCall;
 
-		public GameManagerMock() throws RemoteException {
-			super(new ServerAdapter(), new ClientAdapter());
+		public GameManagerMock(ServerAdapter srvAdp, ClientAdapter cliAdp) throws RemoteException {
+			super(srvAdp, cliAdp);
 			isCreateGameCall = false;
 		}
 
