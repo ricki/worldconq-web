@@ -403,7 +403,7 @@
 						</s:a>
 					</td>		
 					<td align="center">&nbsp;</td>
-					<td align="center" width="260" height="680" rowspan="2">
+					<td align="center" width="260" height="680" rowspan="3">
 					<div align="center">
 						<table border="0" width="260" cellspacing="5" cellpadding="0" height="680" background="image/info.png">
 							<tr>
@@ -433,9 +433,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="center" width="800" height="580">			  	
-                    <div id="mapa">				
-                	<!--America del sur-->			
+					<td align="center" width="800" height="480">			  	
+                    <div id="mapa">	
+                    <!--America del sur-->			
                         <div class="territorio" title="brasil" id="brasil" onClick="seleccionarTerritorio(35)"></div>
                         <div class="territorio" title="argentina" id="argentina" onClick="seleccionarTerritorio(34)"></div>
                         <div class="territorio" title="venezuela" id="venezuela" onClick="seleccionarTerritorio(37)"></div>
@@ -488,9 +488,16 @@
                         <div class="territorio" title="ontario" id="ontario"  onClick="seleccionarTerritorio(31)" ></div>
                         <div class="territorio" title="quebec" id="quebec" onClick="seleccionarTerritorio(32)"></div>
                        	<div class="territorio" title="estados_unidos_oeste" id="estados_unidos_oeste" onClick="seleccionarTerritorio(33)"></div>
-					</div>
+					</div>					
                     </td>
-					<td align="center"></td>
+					<td align="center" rowspan="2"></td>
+				</tr>		
+				<tr>
+					<td align="top" width="800" height="100">			  	
+                    <!-- <div class="infoArea" title="Información sobre los eventos" id="infoArea"> -->
+						<textarea name="infoArea" cols="85" rows="2" tabindex="3" style="font-family: Verdana; font-size: 11pt; color: #191919; font-weight: bold; border: 1px solid #422100; padding: 0; background-color:#9E7D45"></textarea>
+					<!-- </div> -->
+                    </td>
 				</tr>		
 			</table>
 			</div>			

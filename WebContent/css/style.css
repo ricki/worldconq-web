@@ -1,7 +1,7 @@
 #mapa {
 width: 800px;
-height: 580px;
-background-position:center;
+height: 480px;
+background-position:0px 83px;
 background-image: url(../image/mapa.png) ;
 background-repeat: no-repeat;
 }
@@ -74,7 +74,6 @@ background-position: center;
 	background-position: center;
 
 }
-
 #brasil{
 width: 20px;
 height: 20px;

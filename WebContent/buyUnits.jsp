@@ -43,8 +43,7 @@
 </script>
 
 </head>
-<body>
-
+<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
 	<s:include value="header.jsp" />
 	<s:div id="content">
 		<s:form name="buyUnit" action="do_buyUnits">
