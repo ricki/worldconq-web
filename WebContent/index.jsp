@@ -31,7 +31,7 @@
 					<s:form action="login">
 						<s:textfield name="username" label="Usuario" />
 						<s:password name="password" label="Contraseña" />
-						<s:submit />
+						<s:submit value="Entrar"/>
 					</s:form>
 				</s:if>
 			</s:div>
