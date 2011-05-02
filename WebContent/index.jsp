@@ -14,12 +14,12 @@
 </head>
 
 <body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: 50% 40%; background-repeat: no-repeat;">
-	<table align="center" style="padding-top: 50px">
+	<table align="center" style="padding-top: 60px">
 		<tr>
 			<s:include value="header.jsp" />
 		</tr>
 	</table>
-	<table align="center" style="padding-top: 50px">
+	<table align="center" style="padding-top: 60px">
 		<tr>
 			<td>		
 			<s:div id="content">
