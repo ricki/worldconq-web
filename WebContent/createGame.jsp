@@ -57,7 +57,7 @@
 
 </head>
 
-<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
+<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
 	<s:include value="header.jsp" />
 
 	<%-- nombre, descripcion, lista sesiones, turno, defensa time, negociacion time --%>

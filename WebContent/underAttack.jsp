@@ -24,22 +24,23 @@
 </script>
 
 </head>
-<body>
+<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
 
 	<s:actionmessage />
 	<s:actionerror />
-
+	<div align=center style="paddingTop: 30px;">
+	<p> </p>
 	<s:div id="content">
 		<s:form name="underAttackAttack" action="do_replyAttack">
 			<s:div id="attack">
-			Te está atacando 
+			<br>Te está atacando 
 			<s:text name="%{ currentAttack.origin.owner}"></s:text>
 			desde el territorio 
 			<s:text name="%{ currentAttack.origin.name}"></s:text>
 			al territorio
 			<s:text name="%{ currentAttack.destination.name}"></s:text>
 
-				<HR size=5 width=40% align="left">
+				<HR size=5 width=40% align="center">
 
 				<table>
 					<tr>
@@ -81,7 +82,7 @@
 
 		<s:form name="underAttackNegotiation" action="do_requestNegotiation">
 			<s:div id="negotiation">
-				<HR size=5 width=40% align="left">
+				<HR size=5 width=40% align="center">
 
 				<table>
 
@@ -125,8 +126,6 @@
 			</s:div>
 		</s:form>
 	</s:div>
-
-
-
+	</div>
 </body>
 </html>

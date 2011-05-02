@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="css/header.css" type="text/css">
 <title>WorldConq - Register</title>
 </head>
-<body>
-
-	<table>
+<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
+	<table align="center" style="padding-top: 30px">
 		<tr>
 			<s:include value="header.jsp" />
 		</tr>

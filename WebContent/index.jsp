@@ -13,14 +13,15 @@
 </s:if>
 </head>
 
-<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
-	<table align="center" style="padding-top: 30px">
+<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
+	<table align="center" style="padding-top: 50px">
 
 		<tr>
 			<s:include value="header.jsp" />
 		</tr>
 
 		<tr align="center">
+		<div align=center>
 			<s:div id="content">
 
 				<s:actionmessage />
@@ -34,6 +35,7 @@
 					</s:form>
 				</s:if>
 			</s:div>
+			</div>
 		</tr>
 	</table>
 </body>

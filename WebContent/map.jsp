@@ -569,15 +569,15 @@
 								</td>
 							</tr>
 							<tr>
-								<td align="center" width="250" height="245" background="image/cinchodos.png" valign="center">
+								<td align="center" width="250" height="225" background="image/cinchodos.png" valign="center">
 								<div id="infodos" style="overflow:auto; height:195px; width:170px;">
                                 
 								</div>
 								</td>
 							</tr>
 							<tr>
-								<td align="center" valign="top" background="image/cinchotres.png" width="250" height="245">
-                                <div id="infotres" style="overflow:auto; height:195px; width:190px; padding-top: 5px">
+								<td align="center" valign="top" background="image/cinchotres.png" width="250" height="265">
+                                <div id="infotres" style="overflow:auto; height:220px; width:190px; padding-top: 5px">
 								
 								</div>
 								</td>

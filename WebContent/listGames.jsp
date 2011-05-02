@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/lists.css" type="text/css">
 <title>List Games</title>
 </head>
-<body>
+<body bgcolor="#000000" background="image/repe.png" style="background-attachment: fixed; background-position: center; background-repeat: repeat;">
 	<table>
 		<tr>
 			<s:include value="header.jsp"></s:include>
