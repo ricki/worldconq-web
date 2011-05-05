@@ -6,13 +6,13 @@
 <struts>
 
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.action.extension" value="" />
+	<constant name="struts.action.extension" value="action" />
 
 	<package name="worldconq-web" namespace="/" extends="struts-default">
 
 		<default-action-ref name="index" />
 
-		<action name="index">
+		<action name="index"> 
 			<result>/index.jsp</result>
 		</action>
 

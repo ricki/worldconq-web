@@ -6,11 +6,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>WorldConq - CreateGame</title>
-	<script src="/js/jscal2.js"></script> 
-    <script src="/js/lang/es.js"></script> 
-    <link rel="stylesheet" type="text/css" href="/css/jscal2.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/border-radius.css" /> 
-    <link rel="stylesheet" type="text/css" href="/css/steel/steel.css" /> 
+	<script src="/worldconq-web/js/jscal2.js"></script> 
+    <script src="/worldconq-web/js/lang/es.js"></script> 
+    <link rel="stylesheet" type="text/css" href="/worldconq-web/css/jscal2.css" /> 
+    <link rel="stylesheet" type="text/css" href="/worldconq-web/css/border-radius.css" /> 
+    <link rel="stylesheet" type="text/css" href="/worldconq-web/css/steel/steel.css" /> 
+    <script> 
+    	var cont=0;
+    	var cal = Calendar.setup({onSelect: function(cal) {cal.hide();},showTime: true});
+    	
+    	function inicializar(){
+    		cal.manageFields("f_btn0", "f_date0", "%d-%m-%Y %H:%M");
+    	}
+    	
+		function ejecutaCodigo() { 
+			//guardamos el HTML sin contenido
+			var formulario = document.getElementById("fechas").innerHTML;
+			
+			//guardamos el contenido de los valores de las fechas
+			arrayfechas=new Array();
+			for(i=0;i<=cont;i++){
+				arrayfechas[i]=document.getElementById("f_date"+i).value;
+			}
+			cont++;
+			//creamos la nueva linea para anadir
+			var fechaNueva='<br><input size="30" id="f_date'+cont+'" readonly="true" /><input type="button" id="f_btn'+cont+'" value="..." />';
+			
+			//asignamos los valores al formulario
+			document.getElementById("fechas").innerHTML=formulario+fechaNueva;
+			
+			//restauramos los valores de las fechas anteriores
+			for(i=0;i<cont;i++){
+				document.getElementById("f_date"+i).value=arrayfechas[i];
+			}
+			
+			//asignamos los botones del calendario al campo
+			for(i=0;i<=cont;i++){
+				cal.manageFields("f_btn"+i, "f_date"+i, "%d-%m-%Y %I:%M");
+			}
+			
+		}
+	      
+	</script> 
+	
 </head>
 
 <body>
@@ -30,34 +68,25 @@
 		<s:actionerror />
 		
 		
-		<s:form action="createGame">
+		<s:form name="crearJuego" action="createGame" >
 			<s:textfield name="name" label="Nombre" />
-			<s:textfield name="description" label="Descripción" />
-			
-			<input size="30" id="f_date1" readonly="true" /><button id="f_btn1">...</button><br /> 
-	    	<input size="30" id="f_date2" readonly="true" /><button id="f_btn2">...</button><br /> 
-	    	<input size="30" id="f_date3" readonly="true" /><button id="f_btn3">...</button><br /> 
-	    	<input size="30" id="f_date4"  /><button id="f_btn4">...</button> 
-			
+			<s:textfield name="description" label="Descripción" />			
 			<s:textfield name="turnTime" label="Tiempo de Turno" />
 			<s:textfield name="defTime" label="Tiempo de Defensa" />
 			<s:textfield name="negTime" label="Tiempo de Negociación" />
-			<s:submit value="Create Game"/>
 		</s:form>
-
+		
+		<h4>Lista de Fechas de juego:</h4>
+		<s:form name="listaFechas">
+			<s:div id="fechas">
+				<input size="30" id="f_date0" readonly="true" /><input type="button" id="f_btn0" value="..." />
+				<script>inicializar();</script>
+				<input type="button" value="+" id="btnMas" onclick="ejecutaCodigo()" /> 
+    		</s:div>
+    		<s:submit value="Create Game"/>
+		</s:form>
 	</s:div>
 	
-	<script type="text/javascript">//<![CDATA[
- 
-      var cal = Calendar.setup({
-          onSelect: function(cal) { cal.hide() },
-          showTime: true
-      });
-      cal.manageFields("f_btn1", "f_date1", "%d/%m/%Y %I:%M %p");
-      cal.manageFields("f_btn2", "f_date2", "%d/%m/%Y %I:%M %p");
-      cal.manageFields("f_btn3", "f_date3", "%d/%m/%Y %I:%M %p");
-      cal.manageFields("f_btn4", "f_date4", "%d/%m/%Y %I:%M %p");
- 
-    //]]></script> 
+	
 </body>
 </html>
