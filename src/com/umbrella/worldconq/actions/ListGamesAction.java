@@ -12,11 +12,11 @@ public class ListGamesAction extends WorldConqAction {
 
 	private static final long serialVersionUID = -8287753190029594857L;
 
-	ArrayList<GameInfo> currentGames;
-	ArrayList<GameInfo> openGames;
+	private ArrayList<GameInfo> currentGames;
+	private ArrayList<GameInfo> openGames;
 
-	GameListModel currentGameList;
-	GameListModel openGameList;
+	private GameListModel currentGameList;
+	private GameListModel openGameList;
 
 	@Override
 	public String execute() {
