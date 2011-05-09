@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
-
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 
-	<constant name="struts.devMode" value="true" />
-	<constant name="struts.action.extension" value="" />
+	<constant name="struts.devMode" value="true"/>
+<!-- 	<constant name="struts.action.extension" value="" /> -->
+<!-- 	<constant name="struts.action.excludePattern" value="/js/*" /> -->
 
 	<package name="worldconq-web" namespace="/" extends="struts-default">
 
-		<default-action-ref name="index" />
+		<default-action-ref name="index"/>
 
 		<action name="index">
 			<result>/index.jsp</result>
@@ -18,6 +16,15 @@
 
 		<action name="login" class="com.umbrella.worldconq.actions.LoginAction" method="execute">
 			<result name="*">/index.jsp</result>
+		</action>
+
+		<action name="register">
+			<result>/register.jsp</result>
+		</action>
+		
+		<action name="do_register" class="com.umbrella.worldconq.actions.RegisterAction" method="execute">
+			<result name="success">/index.jsp</result>
+			<result name="error">/register.jsp</result>
 		</action>
 
 	</package>
