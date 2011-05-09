@@ -9,6 +9,9 @@
 </head>
 
 <body>
+
+<s:include value="header.jsp" />
+
 <h1>Mapa</h1>
 </body>
 

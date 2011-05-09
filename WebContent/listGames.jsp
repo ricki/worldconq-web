@@ -7,7 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List Games</title>
 </head>
-<body>
+<body> 
+
+	<s:include value="header.jsp" />
+	
 	<div>
 		<h1>Partidas Disponibles</h1>
 		<tr>
