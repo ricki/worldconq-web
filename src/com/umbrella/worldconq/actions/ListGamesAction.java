@@ -25,6 +25,8 @@ public class ListGamesAction extends WorldConqAction {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
+			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
 			this.addActionError("Error sesión inválida.");

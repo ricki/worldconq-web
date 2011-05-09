@@ -26,6 +26,7 @@ public class RegisterAction extends WorldConqAction {
 		} catch (RemoteException e) {
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (UserAlreadyExistsException e) {
 			this.addActionError("El usuario ya existe.");

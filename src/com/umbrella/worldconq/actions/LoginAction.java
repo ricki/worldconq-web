@@ -22,6 +22,7 @@ public class LoginAction extends WorldConqAction {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (WrongLoginException e) {
 			this.addActionError("Usuario o contraseña incorrectos.");
