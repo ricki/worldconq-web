@@ -3,11 +3,12 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WorldConq - Home</title>
 </head>
-
+<s:include value="header.jsp" />
 <body>
 	<header>
 		<h1>

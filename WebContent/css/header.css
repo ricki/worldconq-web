@@ -1,0 +1,37 @@
+#headlist
+{
+	border: 3px solid #222;
+	padding: 0 0 0 20px;
+	margin: 0;
+	background-color: #ACF;
+	font-family: verdana,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#headlist li
+{
+	display: inline;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+#headlist li a
+{
+	text-decoration: none;
+	border: 3px solid #000;
+	padding: 0 8px 1px 8px;
+	margin: 0 2px;
+	background-color: #FFF;
+	color: #000;
+}
+
+* html #navlist li a { padding: 0 8px; }
+
+#headlist li a:hover
+{
+	background-color: #26A;
+	color: #FFF;
+}
