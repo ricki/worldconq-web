@@ -20,7 +20,7 @@
 					</tr>
 					<s:iterator value="currentGames" status="itStatus">
 						<tr>						
-							<td><a href="worldconq/playGame.action/<s:property value="#itStatus.index"/>"><s:text name="name"></s:text></a></td>
+							<td><a href="worldconq/playGame-<s:property value="#itStatus.index"/>.action"><s:text name="name"></s:text></a></td>
 							<td><s:text name="description"></s:text></td>
 							<td><s:text name="players.size()"></s:text></td>
 							<td><s:text name="getnFreeTerritories()"></s:text></td>
@@ -41,7 +41,7 @@
 					</tr>
 					<s:iterator value="openGames" status="itStatus">
 						<tr>
-							<td><a href="worldconq/joinGame.action/<s:property value="#itStatus.index"/>"><s:text name="name"></s:text></a></td>
+							<td><a href="worldconq/joinGame-<s:property value="#itStatus.index"/>.action"><s:text name="name"></s:text></a></td>
 							<td><s:text name="description"></s:text></td>
 							<td><s:text name="players.size()"></s:text></td>
 							<td><s:text name="getnFreeTerritories()"></s:text></td>

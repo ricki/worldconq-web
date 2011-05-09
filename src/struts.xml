@@ -40,16 +40,16 @@
 			<result name="*">/listGames.jsp</result>
 		</action>
 
-		<action name="playGame/*" class="com.umbrella.worldconq.actions.ListGamesAction"
+		<action name="playGame-*" class="com.umbrella.worldconq.actions.ListGamesAction"
 			method="execute">
 			<param name="id">{1}</param>
 			<result name="*">/playGame.jsp</result>
 		</action>
 
-		<action name="joinGame/*" class="com.umbrella.worldconq.actions.ListGamesAction"
+		<action name="joinGame-*" class="com.umbrella.worldconq.actions.JoinGameAction"
 			method="execute">
 			<param name="id">{1}</param>
-			<result name="*">/listGames.jsp</result>
+			<result name="*">/joinGame.jsp</result>
 		</action>
 
 	</package>
