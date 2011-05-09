@@ -22,10 +22,24 @@
 		<action name="register">
 			<result>/register.jsp</result>
 		</action>
-		
+
 		<action name="do_register" class="com.umbrella.worldconq.actions.RegisterAction" method="execute">
 			<result name="success">/index.jsp</result>
 			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="listGames" class="com.umbrella.worldconq.actions.ListGamesAction" method="execute">
+			<result name="*">/listGames.jsp</result>
+		</action>
+
+		<action name="playGame/*" class="com.umbrella.worldconq.actions.ListGamesAction" method="execute">
+			<param name="id">{1}</param>
+			<result name="*">/playGame.jsp</result>
+		</action>
+
+		<action name="joinGame/*" class="com.umbrella.worldconq.actions.ListGamesAction" method="execute">
+			<param name="id">{1}</param>
+			<result name="*">/listGames.jsp</result>
 		</action>
 
 	</package>

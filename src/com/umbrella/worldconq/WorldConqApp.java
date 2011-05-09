@@ -45,7 +45,7 @@ public class WorldConqApp {
 		srvAdapter = new ServerAdapter();
 		srvAdapter.setRemoteInfo(
 			"Server",
-			InetAddress.getByName("161.67.106.74"),
+			InetAddress.getByName("localhost"),
 			1099);
 
 		gameMgr = new GameManager(srvAdapter, cltAdapter);
