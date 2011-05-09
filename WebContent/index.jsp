@@ -15,21 +15,28 @@
 
 <body>
 
-	<s:include value="header.jsp" />
+	<table>
 
-	<s:div id="content">
+		<tr>
+			<s:include value="header.jsp" />
+		</tr>
 
-		<s:actionmessage />
-		<s:actionerror />
+		<tr>
+			<s:div id="content">
 
-		<s:if test="%{ #session.user == null}">
-			<s:form action="login">
-				<s:textfield name="username" label="Usuario" />
-				<s:password name="password" label="Contraseña" />
-				<s:submit />
-			</s:form>
-		</s:if>
-	</s:div>
+				<s:actionmessage />
+				<s:actionerror />
+
+				<s:if test="%{ #session.user == null}">
+					<s:form action="login">
+						<s:textfield name="username" label="Usuario" />
+						<s:password name="password" label="Contraseña" />
+						<s:submit />
+					</s:form>
+				</s:if>
+			</s:div>
+		</tr>
+	</table>
 </body>
 
 </html>

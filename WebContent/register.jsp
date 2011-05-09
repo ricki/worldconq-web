@@ -5,28 +5,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/header.css" type="text/css">
 <title>WorldConq - Register</title>
 </head>
 <body>
-	
-	<s:include value="header.jsp" />
 
-	<s:div id="content">
-		<h2>Registro</h2>
+	<table>
+		<tr>
+			<s:include value="header.jsp" />
+		</tr>
 
-		<s:actionmessage />
-		<s:actionerror />
-			
-		<s:form action="do_register">
-			<s:textfield name="username" label="Usuario" />
-			<s:password name="password" label="Contraseña" />
-			<s:textfield name="email" label="Email" />
-			<s:submit />
-		</s:form>		
+		<tr>
+			<s:div id="content">
+				<h2>Registro</h2>
 
-	</s:div>
+				<s:actionmessage />
+				<s:actionerror />
 
+				<s:form action="do_register">
+					<s:textfield name="username" label="Usuario" />
+					<s:password name="password" label="Contraseña" />
+					<s:textfield name="email" label="Email" />
+					<s:submit />
+				</s:form>
 
+			</s:div>
+		</tr>
+	</table>
 
 </body>
 </html>
