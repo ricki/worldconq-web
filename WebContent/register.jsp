@@ -8,12 +8,8 @@
 <title>WorldConq - Register</title>
 </head>
 <body>
-	<header>
-		<h1>
-			<s:a action="index">WoldConq</s:a>
-		</h1>
-	</header>
-
+	
+	<s:include value="header.jsp" />
 
 	<s:div id="content">
 		<h2>Registro</h2>
