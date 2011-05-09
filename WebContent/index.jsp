@@ -6,15 +6,16 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/header.css" type="text/css">
 <title>WorldConq - Home</title>
+<s:if test="%{ #session.user != null}">
+	<meta http-equiv="Refresh" content="0;/worldconq-web/listGames.action">
+</s:if>
 </head>
-<s:include value="header.jsp" />
+
 <body>
-	<header>
-		<h1>
-			<s:a action="index">WorldConq</s:a>
-		</h1>
-	</header>
+
+	<s:include value="header.jsp" />
 
 	<s:div id="content">
 
@@ -28,13 +29,6 @@
 				<s:submit />
 			</s:form>
 		</s:if>
-		<s:else>
-			<p>
-				Hola
-				<s:property value="#session.user" />
-			</p>
-		</s:else>
-
 	</s:div>
 </body>
 
