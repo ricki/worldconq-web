@@ -18,6 +18,10 @@
 		<action name="login" class="com.umbrella.worldconq.actions.LoginAction" method="execute">
 			<result name="*">/index.jsp</result>
 		</action>
+		
+		<action name="logout" class="com.umbrella.worldconq.actions.LogOutAction" method="execute">
+			<result name="*">/index.jsp</result>
+		</action>
 
 		<action name="register">
 			<result>/register.jsp</result>
