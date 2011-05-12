@@ -1,0 +1,39 @@
+#header ul
+{
+padding-left: 0;
+margin-left: 0;
+background-color: #036;
+color: White;
+float: left;
+width: 100%;
+font-family: arial, helvetica, sans-serif;
+}
+
+#header ul li { 
+	display: inline;
+	float: right;
+	border-left: 1px solid #fff;
+	padding: 0.2em 1em;
+	border-right: 1px solid #fff;
+}
+
+#header ul li a
+{
+
+background-color: #036;
+color: White;
+text-decoration: none;
+float: right;
+
+}
+
+#header #ini{
+	padding: 0.2em 1em;
+	float: left;
+}
+
+#header ul li a:hover
+{
+background-color: #369;
+color: #fff;
+}
