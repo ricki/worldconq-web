@@ -35,6 +35,11 @@ public class LogoutAction extends WorldConqAction {
 		} catch (NotCurrentPlayerGameException e) {
 			this.addActionError("El jugador no esta en la partida");
 			return ERROR;
+		} catch (Exception e) {
+			this.addActionError("Excepción desconocida.");
+			session.remove("app");
+			session.remove("user");
+			return ERROR;
 		}
 		return SUCCESS;
 	}

@@ -22,10 +22,6 @@ class WorldConqWebAppMock extends WorldConqWebApp {
 		super.setGameManager(gameManager);
 	}
 
-	public void setGameManager(GameManager gameManager) {
-		this.gameManager = gameManager;
-	}
-
 	@Override
 	public GameManager getGameManager() {
 		return gameManager;

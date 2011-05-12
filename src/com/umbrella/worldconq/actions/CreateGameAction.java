@@ -31,11 +31,17 @@ public class CreateGameAction extends WorldConqAction {
 
 	@Override
 	public String execute() {
+
 		try {
 
+			System.out.println("nombre" + getName());
+			System.out.println("descripcion" + getDescription());
+			System.out.println("turno" + getTurnTime());
+			System.out.println("def" + getDefTime());
+			System.out.println("neg" + getNegTime());
+
 			getApp().getGameManager().createGame(getName(), getDescription(),
-							getGameSessions(), getTurnTime(), getDefTime(),
-				getNegTime());
+				getGameSessions(), getTurnTime(), getDefTime(), getNegTime());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");

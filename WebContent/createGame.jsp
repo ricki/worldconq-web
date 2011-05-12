@@ -32,23 +32,23 @@
 		//guardamos el contenido de los valores de las fechas
 		arrayfechas = new Array();
 		for (i = 0; i <= cont; i++) {
-			arrayfechas[i] = document.getElementById("f_date[" + i + "]").value;
+			arrayfechas[i] = document.getElementById("gameSessions[" + i + "]").value;
 		}
 		cont++;
 		//creamos la nueva linea para anadir
-		var fechaNueva = '<br><input size="30" id="f_date['+cont+']" readonly="true" /><input type="button" id="f_btn['+cont+']" value="..." />';
+		var fechaNueva = '<br><input size="30" id="gameSessions['+cont+']" readonly="true" /><input type="button" id="f_btn['+cont+']" value="..." />';
 
 		//asignamos los valores al formulario
 		document.getElementById("fechas").innerHTML = formulario + fechaNueva;
 
 		//restauramos los valores de las fechas anteriores
 		for (i = 0; i < cont; i++) {
-			document.getElementById("f_date[" + i + "]").value = arrayfechas[i];
+			document.getElementById("gameSessions[" + i + "]").value = arrayfechas[i];
 		}
 
 		//asignamos los botones del calendario al campo
 		for (i = 0; i <= cont; i++) {
-			cal.manageFields("f_btn[" + i + "]", "f_date[" + i + "]",
+			cal.manageFields("f_btn[" + i + "]", "gameSessions[" + i + "]",
 					"%d-%m-%Y %I:%M");
 		}
 
@@ -70,7 +70,7 @@
 		<s:actionerror />
 
 
-		<s:form name="crearJuego" action="createGame">
+		<s:form name="crearJuego" action="do_createGame">
 			<table>
 				<tr>
 					<td><s:div id="nombre">
