@@ -14,12 +14,12 @@ class WorldConqWebAppMock extends WorldConqWebApp {
 
 	@Override
 	public void setUserManager(UserManager userManager) {
-		this.userManager = userManager;
+		super.setUserManager(userManager);
 	}
 
 	@Override
-	public UserManager getUserManager() {
-		return userManager;
+	public void setGameManager(GameManager gameManager) {
+		super.setGameManager(gameManager);
 	}
 
 	public void setGameManager(GameManager gameManager) {
