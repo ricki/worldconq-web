@@ -15,5 +15,6 @@
 
 <h1>Mapa</h1>
 </body>
-
+	<s:actionmessage />
+	<s:actionerror />
 </html>
