@@ -57,6 +57,13 @@
 			<result name="*">/playGame.jsp</result>
 		</action>
 
+		<action name="buyTerritory-*" class="com.umbrella.worldconq.actions.BuyTerritoryAction"
+			method="execute">
+			<param name="index">{1}</param>
+			<result name="*">/playGame.jsp</result>
+		</action>
+		
+
 	</package>
 
 </struts>
