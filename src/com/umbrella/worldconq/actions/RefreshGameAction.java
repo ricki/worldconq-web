@@ -24,6 +24,7 @@ public class RefreshGameAction extends WorldConqAction {
 		}
 		PlayerListModel playerList = getApp().getGameManager().getGameEngine().getPlayerListModel();
 		players = new ArrayList<Player>();
+
 		for (int i = 0; i < playerList.getRowCount(); i++)
 			players.add(playerList.getPlayerAt(i));
 
@@ -32,15 +33,20 @@ public class RefreshGameAction extends WorldConqAction {
 
 		for (int i = 0; i < mapList.getRowCount(); i++) {
 			int cannons[] = new int[3];
-			cannons[0] = (Integer) mapList.getValueAt(i, 3);
-			cannons[1] = (Integer) mapList.getValueAt(i, 4);
-			cannons[2] = (Integer) mapList.getValueAt(i, 5);
 
-			map.add(new Territory(i, null, (String) mapList.getValueAt(i, 1),
-				(Integer) mapList.getValueAt(i, 2), cannons,
-				(Integer) mapList.getValueAt(i, 6),
-				(Integer) mapList.getValueAt(i, 7),
-				(Integer) mapList.getValueAt(i, 8)));
+			if (mapList.getValueAt(i, 1).equals("¿?")) 
+				map.add(new Territory(i, null, null, 0, cannons, 0, 0, 0));
+			else {
+				cannons[0] = (Integer) mapList.getValueAt(i, 3);
+				cannons[1] = (Integer) mapList.getValueAt(i, 4);
+				cannons[2] = (Integer) mapList.getValueAt(i, 5);
+				map.add(new Territory(i, null,
+					(String) mapList.getValueAt(i, 1),
+					(Integer) mapList.getValueAt(i, 2), cannons,
+					(Integer) mapList.getValueAt(i, 6),
+					(Integer) mapList.getValueAt(i, 7),
+					(Integer) mapList.getValueAt(i, 8)));
+			}
 		}
 		return SUCCESS;
 	}
