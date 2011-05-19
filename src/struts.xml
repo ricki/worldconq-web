@@ -52,7 +52,13 @@
 			<result name="*">/joinGame.jsp</result>
 		</action>
 
-		<action name="refresh_data" class="com.umbrella.worldconq.actions.RefreshAction" method="execute">
+		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshAction"
+			method="execute">
+			<result name="*">/refresh.jsp</result>
+		</action>
+
+		<action name="refresh_data" class="com.umbrella.worldconq.actions.RefreshAction"
+			method="execute">
 			<result name="*">/refresh_data.jsp</result>
 		</action>
 
