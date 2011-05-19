@@ -43,6 +43,7 @@ public class GameEngine implements ClientCallback {
 			throw new NullPointerException();
 		if (adapter == null)
 			throw new NullPointerException();
+		// FIXME
 		//	if (gameListener == null)
 		//	throw new NullPointerException();
 
