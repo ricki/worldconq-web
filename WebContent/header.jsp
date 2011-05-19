@@ -10,7 +10,7 @@
 		<li id="ini"><s:a action="index">Inicio</s:a>
 		</li>
 		<s:if test="%{ #session.user != null}">
-
+			<li id="ini"><s:a action="createGame">Crear partida</s:a></li>
 			<li><s:a action="logout">Logout</s:a>
 			</li>
 			<li>Registrado como <s:property value="#session.user" />
