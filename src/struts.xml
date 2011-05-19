@@ -40,7 +40,7 @@
 			<result name="*">/listGames.jsp</result>
 		</action>
 
-		<action name="playGame-*" class="com.umbrella.worldconq.actions.ListGamesAction"
+		<action name="playGame-*" class="com.umbrella.worldconq.actions.PlayGameAction"
 			method="execute">
 			<param name="id">{1}</param>
 			<result name="*">/playGame.jsp</result>
@@ -52,7 +52,7 @@
 			<result name="*">/joinGame.jsp</result>
 		</action>
 
-		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshAction"
+		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshGameAction"
 			method="execute">
 			<result name="*">/refresh.jsp</result>
 		</action>

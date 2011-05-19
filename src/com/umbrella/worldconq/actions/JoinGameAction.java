@@ -19,7 +19,7 @@ public class JoinGameAction extends WorldConqAction {
 	public String execute() {
 		System.out.println("JoinGameAction::execute");
 		try {
-			getApp().getGameManager().joinGame(getid());
+			getApp().getGameManager().joinGame(getId());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
@@ -40,15 +40,15 @@ public class JoinGameAction extends WorldConqAction {
 			this.addActionError("Ya estás unido a la partida seleccionada.");
 			return ERROR;
 		}
-		this.addActionMessage("Te has unido a la partida " + getid());
+		this.addActionMessage("Te has unido a la partida " + getId());
 		return SUCCESS;
 	}
 
-	public void setid(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getid() {
+	public int getId() {
 		return id;
 	}
 }

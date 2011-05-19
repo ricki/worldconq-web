@@ -43,8 +43,9 @@ public class GameEngine implements ClientCallback {
 			throw new NullPointerException();
 		if (adapter == null)
 			throw new NullPointerException();
-		if (gameListener == null)
-			throw new NullPointerException();
+		// FIXME
+		//	if (gameListener == null)
+		//	throw new NullPointerException();
 
 		mCurrentAttack = null;
 		this.gameListener = gameListener;
@@ -75,6 +76,7 @@ public class GameEngine implements ClientCallback {
 
 	}
 
+	@Override
 	public UUID getId() {
 		return mGame.getGameInfo().getId();
 	}
