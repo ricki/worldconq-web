@@ -1,6 +1,8 @@
 package com.umbrella.worldconq.actions;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -22,30 +24,47 @@ public class CreateGameAction extends WorldConqAction {
 	private int turnTime;
 	private int negTime;
 	private int defTime;
-	private ArrayList<Calendar> gameSessions;
+	private ArrayList<String> gameSessions;
 
 	public CreateGameAction() {
 		super();
-		gameSessions = new ArrayList<Calendar>();
 	}
 
 	@Override
 	public String execute() {
+		ArrayList<Calendar> gameS = new ArrayList<Calendar>();
+		SimpleDateFormat sdf = new SimpleDateFormat
+				("dd-MM-yyyy HH:mm");
+		for (int i = 0; i < getGameSessions().size(); i++) {
+			String date = getGameSessions().get(i);
+			java.util.Date d = null;
+			try {
+				d = sdf.parse(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Calendar c = Calendar.getInstance();
+			c.setTime(d);
+			gameS.add(c);
+		}
 
 		try {
 
-			System.out.println("nombre" + getName());
-			System.out.println("descripcion" + getDescription());
-			System.out.println("turno" + getTurnTime());
-			System.out.println("def" + getDefTime());
-			System.out.println("neg" + getNegTime());
+			System.out.println("nombre: " + getName());
+			System.out.println("descripcion " + getDescription());
+			System.out.println("turno " + getTurnTime());
+			System.out.println("def " + getDefTime());
+			System.out.println("neg " + getNegTime());
+			System.out.println("session" + getGameSessions().toString());
 
 			getApp().getGameManager().createGame(getName(), getDescription(),
-				getGameSessions(), getTurnTime(), getDefTime(), getNegTime());
+				gameS, getTurnTime(), getDefTime(), getNegTime());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (InvalidGameInfoException e) {
 			this.addActionError("Datos de partida incorrectos.");
@@ -85,7 +104,7 @@ public class CreateGameAction extends WorldConqAction {
 		return negTime;
 	}
 
-	public ArrayList<Calendar> getGameSessions() {
+	public ArrayList<String> getGameSessions() {
 		return gameSessions;
 	}
 
@@ -110,7 +129,7 @@ public class CreateGameAction extends WorldConqAction {
 		this.negTime = i;
 	}
 
-	public void setGameSessions(ArrayList<Calendar> i) {
+	public void setGameSessions(ArrayList<String> i) {
 		this.gameSessions = i;
 	}
 

@@ -36,7 +36,7 @@
 		}
 		cont++;
 		//creamos la nueva linea para anadir
-		var fechaNueva = '<br><input size="30" id="gameSessions['+cont+']" readonly="true" /><input type="button" id="f_btn['+cont+']" value="..." />';
+		var fechaNueva = '<br><input size="30" name="gameSessions['+cont+']" id="gameSessions['+cont+']" readonly="true" /><input type="button" id="f_btn['+cont+']" value="..." />';
 
 		//asignamos los valores al formulario
 		document.getElementById("fechas").innerHTML = formulario + fechaNueva;
