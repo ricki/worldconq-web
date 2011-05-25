@@ -14,7 +14,7 @@ import exceptions.NotCurrentPlayerGameException;
 
 public class BuyUnitsAction extends WorldConqAction {
 	private static final long serialVersionUID = 2307285953676749684L;
-	private String exceptionMes;
+	private String exceptionMessage;
 	private int index;
 	private int money;
 	private int soldiers;
@@ -22,15 +22,6 @@ public class BuyUnitsAction extends WorldConqAction {
 	private int missiles;
 	private int icbms;
 	private int antimissiles;
-
-	String getExceptionMessage() {
-		return exceptionMes;
-	}
-
-	void setExceptionMessage(String msg) {
-		this.exceptionMes = msg;
-
-	}
 
 	public String show() {
 		if (!checkLogged() || !checkPlaying())
@@ -94,12 +85,13 @@ public class BuyUnitsAction extends WorldConqAction {
 		return index;
 	}
 
-	public String getExceptionMes() {
-		return exceptionMes;
+	String getExceptionMessage() {
+		return exceptionMessage;
 	}
 
-	public void setExceptionMes(String exceptionMes) {
-		this.exceptionMes = exceptionMes;
+	void setExceptionMessage(String msg) {
+		this.exceptionMessage = msg;
+
 	}
 
 	public int getSoldiers() {
@@ -115,7 +107,7 @@ public class BuyUnitsAction extends WorldConqAction {
 	}
 
 	public void setCannons(int cannons) {
-		cannons = cannons;
+		this.cannons = cannons;
 	}
 
 	public int getMissiles() {
