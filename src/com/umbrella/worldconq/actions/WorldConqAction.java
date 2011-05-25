@@ -48,6 +48,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 		if (app == null) {
 			app = new WorldConqWebApp();
 			session.put("app", app);
+			session.remove("user");
 		}
 		return app;
 	}
