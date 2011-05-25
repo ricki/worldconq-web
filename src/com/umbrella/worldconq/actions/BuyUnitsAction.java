@@ -41,30 +41,39 @@ public class BuyUnitsAction extends WorldConqAction {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("Error con el servidor remoto.");
+			return ERROR;
 		} catch (GameNotFoundException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			return ERROR;
 		} catch (InvalidSessionException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("Error sesión inválida.");
+			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("El usuario debe de estar en la partida ");
+			return ERROR;
 		} catch (InvalidTerritoryException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("El territorio seleccionado no es válido");
+			return ERROR;
 		} catch (UnocupiedTerritoryException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("El territorio seleccionado no está ocupado");
+			return ERROR;
 		} catch (OutOfTurnException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("Accion realizada fuera de turno.");
+			return ERROR;
 		} catch (NotEnoughMoneyException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("No tienes dinero suficiente para la acción seleccionada");
+			return ERROR;
 		} catch (PendingAttackException e) {
 			e.printStackTrace();
 			this.setExceptionMessage("Hay otro ataque en curso");
+			return ERROR;
 		}
 		return SUCCESS;
 	}
