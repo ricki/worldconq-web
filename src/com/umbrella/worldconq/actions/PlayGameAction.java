@@ -11,16 +11,14 @@ import exceptions.NotCurrentPlayerGameException;
 
 public class PlayGameAction extends WorldConqAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 690931065777345613L;
 	private int id;
 
 	@Override
 	public String execute() {
 		try {
-			getApp().getGameManager().connectToGame(id, null);
+			if (!checkPlaying())
+				getApp().getGameManager().connectToGame(id, null);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
