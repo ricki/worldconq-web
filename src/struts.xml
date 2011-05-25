@@ -6,7 +6,6 @@
 <struts>
 
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.enable.SlashesInActionNames" value="true" />
 
 	<package name="worldconq-web" namespace="/" extends="struts-default">
 
@@ -68,7 +67,7 @@
 			<result name="*">/refresh.jsp</result>
 		</action>
 
-		<action name="do_buyTerritory/*"
+		<action name="do_buyTerritory-*"
 			class="com.umbrella.worldconq.actions.BuyTerritoryAction" method="execute">
 			<param name="index">{1}</param>
 			<result name="success">/actionSuccess.xml</result>
@@ -76,7 +75,7 @@
 			<result name="input">/actionInput.xml</result>
 		</action>
 
-		<action name="buyUnits/*" class="com.umbrella.worldconq.actions.BuyUnitsAction"
+		<action name="buyUnits-*" class="com.umbrella.worldconq.actions.BuyUnitsAction"
 			method="show">
 			<param name="index">{1}</param>
 			<result name="*">/buyUnits.jsp</result>
@@ -89,14 +88,14 @@
 			<result name="input">/actionInput.xml</result>
 		</action>
 
-<!-- 		<action name="do_deploySpy/*" class="com.umbrella.worldconq.actions.DeploySpyAction" method="execute"> -->
+<!-- 		<action name="do_deploySpy-*" class="com.umbrella.worldconq.actions.DeploySpyAction" method="execute"> -->
 <!-- 			<param name="index">{1}</param> -->
 <!-- 			<result name="success">/actionSuccess.xml</result> -->
 <!-- 			<result name="error">/actionError.jsp</result> -->
 <!-- 			<result name="input">/actionInput.xml</result> -->
 <!-- 		</action> -->
 
-<!-- 		<action name="attack/*" class="com.umbrella.worldconq.actions.AttackAction" -->
+<!-- 		<action name="attack-*" class="com.umbrella.worldconq.actions.AttackAction" -->
 <!-- 			method="show"> -->
 <!-- 			<param name="index">{1}</param> -->
 <!-- 			<result name="*">/buyUnits.jsp</result> -->
