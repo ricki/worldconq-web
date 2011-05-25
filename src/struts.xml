@@ -71,7 +71,7 @@
 		<action name="do_buyTerritory/*"
 			class="com.umbrella.worldconq.actions.BuyTerritoryAction" method="execute">
 			<param name="index">{1}</param>
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
@@ -85,7 +85,7 @@
 		<action name="do_buyUnits/*" class="com.umbrella.worldconq.actions.BuyUnitsAction"
 			method="execute">
 			<param name="index">{1}</param>
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
@@ -93,7 +93,7 @@
 		<action name="do_deploySpy/*" class="com.umbrella.worldconq.actions.DeploySpyAction"
 			method="execute">
 			<param name="index">{1}</param>
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
@@ -106,7 +106,7 @@
 
 		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction"
 			method="execute">
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
@@ -118,14 +118,14 @@
 
 		<action name="do_replyAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
 			method="executeAttack">
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
 
 		<action name="do_requestNegotiation" class="com.umbrella.worldconq.actions.UnderAttackAction"
 			method="executeNegotiation">
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
@@ -133,7 +133,7 @@
 		<action name="do_accept*"
 			class="com.umbrella.worldconq.actions.ResolveAttackAction" method="execute">
 			<param name="option">{1}</param>
-			<result name="success">/actionOK.xml</result>
+			<result name="success">/actionSuccess.xml</result>
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
