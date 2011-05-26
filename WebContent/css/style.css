@@ -5,6 +5,13 @@ background-position:center;
 background-image: url(../image/mapa.png) ;
 background-repeat: no-repeat;
 }
+#menu {
+width: 750px;
+height: 50px;
+top: 160px;
+left: 5%;
+position: relative;
+}
 .campo{
 	color: #422100;
 	font:Verdana, Geneva, sans-serif
