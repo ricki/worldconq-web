@@ -49,7 +49,7 @@
 		//asignamos los botones del calendario al campo
 		for (i = 0; i <= cont; i++) {
 			cal.manageFields("f_btn[" + i + "]", "gameSessions[" + i + "]",
-					"%d-%m-%Y %I:%M");
+					"%d-%m-%Y %H:%M");
 		}
 
 	}
