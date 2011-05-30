@@ -10,39 +10,41 @@ import domain.Player;
 public class GameEventPool extends Vector<GameEvent> implements
 		GameEventListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3720667128671848534L;
 
 	@Override
 	public void territoryUnderAttack(TerritoryDecorator src, TerritoryDecorator dst, Arsenal arsenal) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.TerritoryUnderAttackEvent,
+			"El territorio de " + dst.getName() + " está siendo atacado por "
+					+ src.getName() + "."));
 	}
 
 	@Override
 	public void negotiationRequested(int money, int soldiers) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.NegotiationEvent,
+			"Se está ofreciendo una negociación de " + Integer.toString(money)
+					+ " gallifantes y " + Integer.toString(soldiers)
+					+ " soldados."));
 	}
 
 	@Override
 	public void attackEvent(TerritoryDecorator src, TerritoryDecorator dst) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.TerritoryUnderAttackEvent,
+			"El territorio de " + dst.getName() + " está siendo atacado por "
+					+ src.getName() + "."));
 	}
 
 	@Override
 	public void negotiationEvent(TerritoryDecorator src, TerritoryDecorator dst) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.NegotiationEvent,
+			"Se está ofreciendo una negociación de " + src.getName()
+					+ " a " + dst.getName() + "."));
 	}
 
 	@Override
 	public void buyTerritoryEvent(TerritoryDecorator t) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.BuyTerritoryEvent, t.getOwner()
+				+ " ha comprado " + t.getName()));
 	}
 
 	@Override
