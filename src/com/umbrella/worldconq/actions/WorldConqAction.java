@@ -26,21 +26,17 @@ public abstract class WorldConqAction extends ActionSupport implements
 	protected boolean checkLogged() {
 		if (getApp().getUserManager().getSession() == null) {
 			this.addActionError("El ususario debe estar logueado.");
-			session.remove("app");
-			session.remove("user");
 			return false;
-		} else
-			return true;
+		}
+		return true;
 	}
 
 	protected boolean checkPlaying() {
 		if (getApp().getGameManager().getGameEngine() == null) {
 			this.addActionError("El ususario debe estar jugando.");
-			session.remove("app");
-			session.remove("user");
 			return false;
-		} else
-			return true;
+		}
+		return true;
 	}
 
 	public WorldConqWebApp getApp() {
