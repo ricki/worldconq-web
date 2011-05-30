@@ -8,9 +8,21 @@
 <link rel="stylesheet" href="css/header.css" type="text/css">
 <title>WorldConq - Attack</title>
 <script type="text/javascript" src="info_territories.js"></script>
+<script type="text/javascript">
+//script para recoger en variables de javascript lo que hayamos pasado por get en la url.
+
+var Url = location.href;
+Url = Url.replace(/.*\?(.*?)/,"$1");
+Variables = Url.split ("&");
+for (i = 0; i < Variables.length; i++) {
+       Separ = Variables[i].split("=");
+       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
+}
+
+</script>
 </head>
 <body>
-	<s:form action="do_register">
+	<s:form action="do_attack">
 	<table>
 		<tr style="text-align: center;">
 			<td>
@@ -126,6 +138,11 @@
 				</table>
 			</td>
 		</tr>
+		<tr>
+			<td colspan="4" style="text-align: center;">
+				<s:submit value="Atacar" theme="simple"/>
+			</td>
+		</tr>
 	</table>
 	</s:form>
 
@@ -134,8 +151,7 @@
 cargarAdyacentes();
 
 function cargarAdyacentes(){
-	//territorio = request.getParameter("territorio");
-	territorio = 1;
+	//territorio = 1, esta variable se coge de la función que se ejecuta al principio;
 	
 	territorios_adyacentes = adyacentes[territorio];
 	

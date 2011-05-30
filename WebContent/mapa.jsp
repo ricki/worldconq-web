@@ -15,54 +15,12 @@
 <script type="text/javascript" src="greybox/AJS.js"></script>
 <script type="text/javascript" src="greybox/AJS_fx.js"></script>
 <script type="text/javascript" src="greybox/gb_scripts.js"></script>
+<script type="text/javascript" src="info_territories.js"></script>
 <link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" media="all" />
     
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/header.css" />
    <script>
-   		var datos_paises = new Array();
-   		datos_paises[0]=new Array("gran_bretana", "Gran Bretaña", 279);
-   		datos_paises[1]=new Array("iceland", "Islandia", 197);
-   		datos_paises[2]=new Array("europa_norte", "Europa del Norte", 191);
-   		datos_paises[3]=new Array("escandinavia", "Escandinavia", 296);
-   		datos_paises[4]=new Array("europa_sur", "Europa del Sur", 183);
-   		datos_paises[5]=new Array("ucrania", "Ucrania", 288);
-   		datos_paises[6]=new Array("europa_occidental", "Europa Occidental", 109);
-   		datos_paises[7]=new Array("afghanistan", "Afghanistan", 212);
-   		datos_paises[8]=new Array("china", "China", 294);
-   		datos_paises[9]=new Array("india", "India", 298);
-   		datos_paises[10]=new Array("irkutsk", "Irkutsk", 189);
-   		datos_paises[11]=new Array("japon", "Japon", 171);
-   		datos_paises[12]=new Array("kamchatka", "Kamchatka", 234);
-   		datos_paises[13]=new Array("oriente_medio", "Oriente Medio", 273);
-   		datos_paises[14]=new Array("mongolia", "Mongolia", 247);
-   		datos_paises[15]=new Array("siam", "Siam", 140);
-   		datos_paises[16]=new Array("siberia", "Siberia", 275);
-   		datos_paises[17]=new Array("ural", "Ural", 193);
-   		datos_paises[18]=new Array("yakutsk", "yakutsk", 261);
-   		datos_paises[19]=new Array("congo", "Congo", 280);
-   		datos_paises[20]=new Array("africa_oriental", "Africa Oriental", 146);
-   		datos_paises[21]=new Array("egipto", "Egipto", 143);
-   		datos_paises[22]=new Array("madagascar", "Madagascar", 211);
-   		datos_paises[23]=new Array("africa_norte", "Africa del Norte", 176);
-   		datos_paises[24]=new Array("sudafrica", "Sudafrica", 188);
-   		datos_paises[25]=new Array("alaska", "Alaska", 122);
-   		datos_paises[26]=new Array("alberta", "Alberta", 172);
-   		datos_paises[27]=new Array("america_central", "America Central", 285);
-   		datos_paises[28]=new Array("estados_unidos_este", "Estados Unidos del Este", 274);
-   		datos_paises[29]=new Array("groenlandia", "Groenlandia", 141);
-   		datos_paises[30]=new Array("territerios_noroeste", "Territerios del Noroeste", 198);
-   		datos_paises[31]=new Array("ontario", "Ontario", 236);
-   		datos_paises[32]=new Array("quebec", "Quebec", 129);
-   		datos_paises[33]=new Array("estados_unidos_oeste", "Estados Unidos del Oeste", 118);
-   		datos_paises[34]=new Array("argentina", "Argentina", 281);
-   		datos_paises[35]=new Array("brasil", "Brasil", 116);
-   		datos_paises[36]=new Array("peru", "Peru", 251);
-   		datos_paises[37]=new Array("venezuela", "Venezuela", 170);
-   		datos_paises[38]=new Array("australia_oriental", "Australia Oriental", 125);
-   		datos_paises[39]=new Array("indonesia", "Indonesia", 245);
-   		datos_paises[40]=new Array("nueva_guinea", "Nueva Guinea", 124);
-   		datos_paises[41]=new Array("australia_occidental", "Australia Occidental", 150);
    		
    		var seleccionado = 0;
    		var territorio_seleccionado = "";
@@ -393,7 +351,7 @@
 					<input onclick="return GB_show('Comprar Territorio', '#');" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Atacar', '#');" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Atacar', '../attack.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
 					<input onclick="return GB_show('Mandar Espia', '#');" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
