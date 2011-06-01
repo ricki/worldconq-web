@@ -3,13 +3,10 @@ package com.umbrella.worldconq.actions;
 import java.rmi.RemoteException;
 
 import com.umbrella.worldconq.domain.Attack;
-import com.umbrella.worldconq.domain.TerritoryDecorator;
 import com.umbrella.worldconq.exceptions.NotEnoughMoneyException;
 import com.umbrella.worldconq.exceptions.NotEnoughUnitsException;
 import com.umbrella.worldconq.exceptions.OutOfTurnException;
 
-import domain.Arsenal;
-import domain.Territory;
 import exceptions.GameNotFoundException;
 import exceptions.InvalidSessionException;
 import exceptions.InvalidTimeException;
@@ -23,18 +20,8 @@ public class UnderAttackAction extends WorldConqAction {
 	private int soldiers;
 
 	public String show() {
-		if (!checkLogged() || !checkPlaying() || !checkCurrentAttack()) {
-			setCurrentAttack(new Attack(new Arsenal(1, 1, 1, 0),
-							new TerritoryDecorator(new Territory(0, null,
-								"usuario de error origen", 0,
-								null, 4, 3, 3), null, null),
-				new TerritoryDecorator(
-								new Territory(2, null,
-									"usuario de error destino", 4, null,
-									14, 13, 13),
-								null, null)));
+		if (!checkLogged() || !checkPlaying() || !checkCurrentAttack())
 			return ERROR;
-		}
 		setCurrentAttack(getApp().getGameManager().getGameEngine().getCurrentAttack());
 		return SUCCESS;
 	}
