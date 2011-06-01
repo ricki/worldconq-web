@@ -45,7 +45,6 @@
 </head>
 <body>
 
-	<s:include value="header.jsp" />
 	<s:div id="content">
 		<s:form name="buyUnit" action="do_buyUnits">
 			<s:div id="nombre">

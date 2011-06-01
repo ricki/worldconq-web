@@ -32,8 +32,6 @@ public class BuyUnitsAction extends WorldConqAction {
 
 	@Override
 	public String execute() {
-		if (!checkLogged() || !checkPlaying())
-			return ERROR;
 		try {
 			getApp().getGameManager().getGameEngine().buyUnits(getIndex(),
 				getSoldiers(), getCannons(), getMissiles(), getIcbm(),

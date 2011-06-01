@@ -25,7 +25,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 
 	protected boolean checkLogged() {
 		if (getApp().getUserManager().getSession() == null) {
-			this.addActionError("El ususario debe estar logueado.");
+			this.addActionError("El usuario debe estar logueado.");
 			return false;
 		}
 		return true;
@@ -33,7 +33,15 @@ public abstract class WorldConqAction extends ActionSupport implements
 
 	protected boolean checkPlaying() {
 		if (getApp().getGameManager().getGameEngine() == null) {
-			this.addActionError("El ususario debe estar jugando.");
+			this.addActionError("El usuario debe estar jugando.");
+			return false;
+		}
+		return true;
+	}
+
+	protected boolean checkCurrentAttack() {
+		if (getApp().getGameManager().getGameEngine().getCurrentAttack() == null) {
+			this.addActionError("No hay ataque en curso.");
 			return false;
 		}
 		return true;
