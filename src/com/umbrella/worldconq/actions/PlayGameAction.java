@@ -18,9 +18,9 @@ public class PlayGameAction extends WorldConqAction {
 
 	@Override
 	public String execute() {
+		GameManager mgr = getApp().getGameManager();
 		try {
-			GameManager mgr = getApp().getGameManager();
-			if (mgr.getGameEngine() == null) mgr.connectToGame(id, null);
+			mgr.connectToGame(getId(), null);
 		} catch (RemoteException e) {
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
@@ -33,23 +33,19 @@ public class PlayGameAction extends WorldConqAction {
 			return ERROR;
 		} catch (GameNotFoundException e) {
 			this.addActionError("No se ha podido localizar la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
 			return ERROR;
 		} catch (InvalidTimeException e) {
 			this.addActionError("No es buen momento para jugar. Tómate un café.");
-			session.remove("app");
-			session.remove("user");
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
 			this.addActionError("No estás unido a la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
 			return ERROR;
 		} catch (AlreadyInGameException e) {
 			this.addActionError("Ya estás conectado a la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
+			try {
+				mgr.disconnectFromGame();
+			} catch (Exception e1) {
+			}
 			return ERROR;
 		}
 		return SUCCESS;
