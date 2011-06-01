@@ -249,7 +249,7 @@
 			
 			//volvemos a marcar el territorio seleccionado si lo habia
 			if(seleccionado == 1){
-				document.getElementById(datos_paises[territorio_selecionado][0]).setAttribute('class','territorio_seleccionado');
+				document.getElementById(datos_paises[territorio_seleccionado][0]).setAttribute('class','territorio_seleccionado');
 			}
 		}
 		
@@ -299,7 +299,7 @@
 		function getInfoMap()
 		{
 			setTimeout("getInfoMap()",5000);
-			alert("llamada");
+
 //			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
  			if( window.XMLHttpRequest )
  				ajax = new XMLHttpRequest(); // No Internet Explorer
