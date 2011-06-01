@@ -21,7 +21,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/header.css" />
    <script>
-   		
    		var seleccionado = 0;
    		var territorio_seleccionado = "";
 		var datos = new Array();	
@@ -163,6 +162,8 @@
 				
 				document.getElementById('boton_atacar').disabled = true;
 				document.getElementById('boton_atacar').src="./image/botonatacar_disabled.png";
+				
+				drawTerritories();
 			}
 				
 		}
@@ -215,7 +216,7 @@
 			document.getElementById('infotres').innerHTML = texto;
 		}
 
-		function funcionCallback()
+		function functionCallback()
 		{
 			// Comprobamos si la peticion se ha completado (estado 4)
 			if( ajax.readyState == 4 )
@@ -229,8 +230,26 @@
 					refreshTerritories();
 					refreshUsers();
 					inicializarTablaUsuarios();
+					drawTerritories();
 					
 				}
+			}
+		}
+		
+		function drawTerritories(){
+			for (t=0; t<array_territorios.length;t++){
+				if(array_territorios[t][3] == document.getElementById('self_user').value){
+					document.getElementById(datos_paises[t][0]).setAttribute("class", "territorio_propio");
+				}else if (array_territorios[t][3] != "?" && array_territorios[t][3] != ""){
+					document.getElementById(datos_paises[t][0]).setAttribute("class", "territorio_enemigo");
+				}else{
+					document.getElementById(datos_paises[t][0]).setAttribute("class", "territorio");
+				}
+			}
+			
+			//volvemos a marcar el territorio seleccionado si lo habia
+			if(seleccionado == 1){
+				document.getElementById(datos_paises[territorio_selecionado][0]).setAttribute('class','territorio_seleccionado');
 			}
 		}
 		
@@ -279,19 +298,21 @@
 
 		function getInfoMap()
 		{
-			// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
-			if( window.XMLHttpRequest )
-				ajax = new XMLHttpRequest(); // No Internet Explorer
-			else
-				ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+			setTimeout("getInfoMap()",5000);
+			alert("llamada");
+//			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+ 			if( window.XMLHttpRequest )
+ 				ajax = new XMLHttpRequest(); // No Internet Explorer
+ 			else
+ 				ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
 
-			// Almacenamos en el control al funcion que se invocara cuando la peticion
-			// cambie de estado	
-			ajax.onreadystatechange = functionCallback;
+//			Almacenamos en el control al funcion que se invocara cuando la peticion
+//			cambie de estado	
+ 			ajax.onreadystatechange = functionCallback;
 
-			// Enviamos la peticion
-			ajax.open( "GET", "/worldconq-web/refreshGame.action", true );
-			ajax.send( "" );
+//			Enviamos la peticion
+ 			ajax.open( "GET", "/worldconq-web/refreshGame.action", true );
+ 			ajax.send( "" );
 		}
 		
 		function cargarDatosTerritorio(territorio){
@@ -475,11 +496,14 @@
 		</tr>
 	</table>
 <script>
+setTimeout("getInfoMap()",5000);
 refreshUsers();
+refreshTerritories();
 inicializarTablaUsuarios();
 inicializarInfoGeneral();
 inicializarInfoTerritorio();
 document.getElementById('self_user').value = "qwer";
+drawTerritories();
 </script>
 </body>
 

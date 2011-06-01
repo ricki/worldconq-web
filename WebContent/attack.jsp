@@ -45,52 +45,24 @@ for (i = 0; i < Variables.length; i++) {
 							<s:textfield name="soldiers" id="soldiers" value="0" theme="simple"/>
 						</td>
 						<td>
-							<input type="button" value="+" onclick="add('soldiers')">
+							<input type="button" value="-" onclick="del('soldiers')">
 						</td>
 						<td>
-							<input type="button" value="-" onclick="del('soldiers')">
+							<input type="button" value="+" onclick="add('soldiers')">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							Cañones 1:
+							Cañones:
 						</td>
 						<td>
-							<s:textfield name="cannons1" id="cannons1" value="0" theme="simple"/>
-						</td>
-						<td>
-							<input type="button" value="+" onclick="add('cannons1')">
+							<s:textfield name="cannons" id="cannons" value="0" theme="simple"/>
 						</td>
 						<td>
 							<input type="button" value="-" onclick="del('cannons1')">
 						</td>
-					</tr>
-					<tr>
 						<td>
-							Cañones 2:
-						</td>
-						<td>
-							<s:textfield name="cannons2" id="cannons2" value="0" theme="simple"/>
-						</td>
-						<td>
-							<input type="button" value="+" onclick="add('cannons2')">
-						</td>
-						<td>
-							<input type="button" value="-" onclick="del('cannons2')">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Cañones 3:
-						</td>
-						<td>
-							<s:textfield name="cannons3" id="cannons3" value="0" theme="simple"/>
-						</td>
-						<td>
-							<input type="button" value="+" onclick="add('cannons3')">
-						</td>
-						<td>
-							<input type="button" value="-" onclick="del('cannons3')">
+							<input type="button" value="+" onclick="add('cannons1')">
 						</td>
 					</tr>
 					<tr>
@@ -101,10 +73,10 @@ for (i = 0; i < Variables.length; i++) {
 							<s:textfield name="missiles" id="missiles" value="0" theme="simple"/>
 						</td>
 						<td>
-							<input type="button" value="+" onclick="add('missiles')">
+							<input type="button" value="-" onclick="del('missiles')">
 						</td>
 						<td>
-							<input type="button" value="-" onclick="del('missiles')">
+							<input type="button" value="+" onclick="add('missiles')">
 						</td>
 					</tr>
 					<tr>
@@ -115,24 +87,10 @@ for (i = 0; i < Variables.length; i++) {
 							<s:textfield name="icbm" id="icbm" value="0" theme="simple"/>
 						</td>
 						<td>
-							<input type="button" value="+" onclick="add('icbm')">
-						</td>
-						<td>
 							<input type="button" value="-" onclick="del('icbm')">
 						</td>
-					</tr>
-					<tr>
 						<td>
-							Anti Misiles: 
-						</td>
-						<td>
-							<s:textfield name="antimissiles" id="antimissiles" value="0" theme="simple"/>
-						</td>
-						<td>
-							<input type="button" value="+" onclick="add('antimissiles')">
-						</td>
-						<td>
-							<input type="button" value="-" onclick="del('antimissiles')">
+							<input type="button" value="+" onclick="add('icbm')">
 						</td>
 					</tr>
 				</table>
