@@ -10,7 +10,7 @@ width: 750px;
 height: 50px;
 top: 160px;
 left: 5%;
-position: relative;
+position: absolute;
 }
 .campo{
 	color: #422100;
