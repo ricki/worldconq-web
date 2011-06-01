@@ -25,18 +25,21 @@
 
 </head>
 <body>
-	<s:include value="header.jsp" />
-	<s:div id="content">
-		<s:form name="underAttack">
-			<s:div id="nombre">
-			Te está atacando 
-			<s:text name="currentAttack.getOrigin().getOwner()"></s:text>
-			desde el territorio 
-			<s:text name="currentAttack.getOrigin().getName()"></s:text>
-			al territorio
-			<s:text name="currentAttack.getDestination().getName()"></s:text>
 
-				<HR size=5 width=40% align="left"> 
+	<s:actionmessage />
+	<s:actionerror />
+
+	<s:div id="content">
+		<s:form name="underAttackAttack" action="do_replyAttack">
+			<s:div id="attack">
+			Te está atacando 
+			<s:text name="%{ currentAttack.origin.owner}"></s:text>
+			desde el territorio 
+			<s:text name="%{ currentAttack.origin.name}"></s:text>
+			al territorio
+			<s:text name="%{ currentAttack.destination.name}"></s:text>
+
+				<HR size=5 width=40% align="left">
 
 				<table>
 					<tr>
@@ -45,38 +48,40 @@
 
 					<tr>
 						<td>Soldados</td>
-						<td><s:text name="currentAttack.getArsenal().soldiers"></s:text>
+						<td><s:text name="%{ currentAttack.arsenal.soldiers}"></s:text>
 						</td>
 					</tr>
 
 					<tr>
 						<td>Cañones</td>
-						<td><s:text name="currentAttack.getArsenal().cannons"></s:text>
+						<td><s:text name="%{ currentAttack.arsenal.cannons}"></s:text>
 						</td>
 					</tr>
 
 					<tr>
 						<td>Misiles</td>
-						<td><s:text name="currentAttack.getArsenal().missiles"></s:text>
+						<td><s:text name="%{ currentAttack.arsenal.missiles}"></s:text>
 						</td>
 					</tr>
 
 					<tr>
 						<td>ICBMs</td>
-						<td><s:text name="currentAttack.getArsenal().ICBMs"></s:text>
+						<td><s:text name="%{ currentAttack.arsenal.ICBMs}"></s:text>
 						</td>
 					</tr>
 
 					<tr>
 						<td><input type="submit" value="Aceptar Ataque" />
 						</td>
-						<td><input type="submit" value="Rechazar Ataque" />
-						</td>
 					</tr>
 
 				</table>
+			</s:div>
+		</s:form>
 
-				<HR size=5 width=40% align="left"> 
+		<s:form name="underAttackNegotiation" action="do_requestNegotiation">
+			<s:div id="negotiation">
+				<HR size=5 width=40% align="left">
 
 				<table>
 

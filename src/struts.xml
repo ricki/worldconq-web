@@ -126,19 +126,19 @@
 			<result name="*">/underAttack.jsp</result>
 		</action>
 
-<!-- 		<action name="do_replyAttack" class="com.umbrella.worldconq.actions.UnderAttackAction" -->
-<!-- 			method="executeAttack"> -->
-<!-- 			<result name="success">/actionSuccess.xml</result> -->
-<!-- 			<result name="error">/actionError.jsp</result> -->
-<!-- 			<result name="input">/actionInput.xml</result> -->
-<!-- 		</action> -->
+		<action name="do_replyAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="executeAttack">
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
 
-<!-- 		<action name="do_requestNegotiation" class="com.umbrella.worldconq.actions.UnderAttackAction" -->
-<!-- 			method="executeNegotiation"> -->
-<!-- 			<result name="success">/actionSuccess.xml</result> -->
-<!-- 			<result name="error">/actionError.jsp</result> -->
-<!-- 			<result name="input">/actionInput.xml</result> -->
-<!-- 		</action> -->
+		<action name="do_requestNegotiation" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="executeNegotiation">
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
 
 <!-- 		<action name="do_accept*" -->
 <!-- 			class="com.umbrella.worldconq.actions.ResolveAttackAction" method="execute"> -->
