@@ -121,10 +121,10 @@
 <!-- 			<result name="input">/actionInput.xml</result> -->
 <!-- 		</action> -->
 
-<!-- 		<action name="underAttack" class="com.umbrella.worldconq.actions.UnderAttackAction" -->
-<!-- 			method="show"> -->
-<!-- 			<result name="*">/underAttack.jsp</result> -->
-<!-- 		</action> -->
+		<action name="underAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="show">
+			<result name="*">/underAttack.jsp</result>
+		</action>
 
 <!-- 		<action name="do_replyAttack" class="com.umbrella.worldconq.actions.UnderAttackAction" -->
 <!-- 			method="executeAttack"> -->
