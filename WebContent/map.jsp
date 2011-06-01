@@ -301,7 +301,7 @@
 
 		function getInfoMap()
 		{
-			setTimeout("getInfoMap()",5000);
+			setTimeout("getInfoMap()",10000);
 
 //			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
  			if( window.XMLHttpRequest )

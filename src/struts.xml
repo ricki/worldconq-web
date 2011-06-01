@@ -53,7 +53,8 @@
 		<action name="playGame-*" class="com.umbrella.worldconq.actions.PlayGameAction"
 			method="execute">
 			<param name="id">{1}</param>
-			<result name="*">/map.jsp</result>
+			<result name="success">/map.jsp</result>
+			<result name="*">/listGames.jsp</result>
 		</action>
 
 		<action name="joinGame-*" class="com.umbrella.worldconq.actions.JoinGameAction"
@@ -64,7 +65,8 @@
 
 		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshGameAction"
 			method="execute">
-			<result name="*">/refresh.jsp</result>
+			<result name="success">/refresh.jsp</result>
+			<result name="*">/actionError.jsp</result>
 		</action>
 
 		<action name="do_buyTerritory-*"
