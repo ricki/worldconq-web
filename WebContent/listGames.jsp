@@ -33,7 +33,7 @@
 					<s:iterator value="currentGames" status="itStatus">
 						<tr>
 							<td><a
-								href="worldconq/playGame-<s:property value="#itStatus.index"/>.action"><s:text
+								href="playGame-<s:property value="#itStatus.index"/>.action"><s:text
 										name="name"></s:text> </a></td>
 							<td><s:text name="description"></s:text></td>
 							<td><s:text name="players.size()"></s:text></td>
@@ -53,7 +53,7 @@
 					<s:iterator value="openGames" status="itStatus">
 						<tr>
 							<td><a
-								href="worldconq/joinGame-<s:property value="#itStatus.index"/>.action"><s:text
+								href="joinGame-<s:property value="#itStatus.index"/>.action"><s:text
 										name="name"></s:text> </a></td>
 							<td><s:text name="description"></s:text></td>
 							<td><s:text name="players.size()"></s:text></td>
