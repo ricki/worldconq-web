@@ -252,6 +252,7 @@
 			//volvemos a marcar el territorio seleccionado si lo habia
 			if(seleccionado == 1){
 				document.getElementById(datos_paises[territorio_seleccionado][0]).setAttribute('class','territorio_seleccionado');
+				cargarDatosTerritorio(territorio);
 			}
 		}
 		
@@ -371,19 +372,19 @@
 		<table style="width: 100%">
 			<tr>
 				<td>
-					<input onclick="return GB_show('Comprar Territorio', '#');" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Comprar Territorio', '../buyTerritory.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
 					<input onclick="return GB_show('Atacar', '../attack.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Mandar Espia', '#');" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Mandar Espia', '../buyUnits.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Mover tropas', '#');" type="image" disabled src="./image/botonmover_disabled.png" id="boton_mover" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Mover tropas', '../moveUnits.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonmover_disabled.png" id="boton_mover" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Comprar Tropas', '#');" type="image" disabled src="./image/botonrefuerzos_disabled.png" id="boton_refuerzos" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Comprar Tropas', '../buyUnits.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonrefuerzos_disabled.png" id="boton_refuerzos" style="width: 95px; height: 35px;">
 				</td>
 			</tr>
 		</table>

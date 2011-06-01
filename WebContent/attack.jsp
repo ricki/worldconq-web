@@ -21,9 +21,9 @@ for (i = 0; i < Variables.length; i++) {
 
 </script>
 </head>
-<body>
+<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
 	<s:form action="do_attack">
-	<table>
+	<table align="center" style="padding-top: 30px">
 		<tr style="text-align: center;">
 			<td>
 				<select id="territory_attack"></select>
