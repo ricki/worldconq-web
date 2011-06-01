@@ -3,9 +3,6 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 
 <div id="header">
-	<h1>
-		<s:a action="index">WorldConq</s:a>
-	</h1>
 	<ul id="headlist">
 		<li id="ini"><s:a action="index">Inicio</s:a>
 		</li>
