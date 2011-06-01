@@ -108,11 +108,11 @@
 <!-- 			<result name="input">/actionInput.xml</result> -->
 <!-- 		</action> -->
 
-<!-- 		<action name="attack-*" class="com.umbrella.worldconq.actions.AttackAction" -->
-<!-- 			method="show"> -->
-<!-- 			<param name="index">{1}</param> -->
-<!-- 			<result name="*">/buyUnits.jsp</result> -->
-<!-- 		</action> -->
+		<action name="attack-*" class="com.umbrella.worldconq.actions.AttackAction"
+			method="show">
+			<param name="index">{1}</param>
+			<result name="*">/attack.jsp</result>
+		</action>
 
 <!-- 		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction" -->
 <!-- 			method="execute"> -->
