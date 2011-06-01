@@ -1,5 +1,7 @@
 package com.umbrella.worldconq.domain;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Vector;
 
 import com.umbrella.worldconq.ui.GameEventListener;
@@ -49,19 +51,35 @@ public class GameEventPool extends Vector<GameEvent> implements
 
 	@Override
 	public void buyUnitsEvent(TerritoryDecorator t) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.BuyArsenalEvent,
+			"Se ha realizado una compra de arsenal en " + t.getName()));
 	}
 
 	@Override
 	public void turnChangedEvent(Player p) {
-		// TODO Auto-generated method stub
-
+		this.add(new GameEvent(EventType.TurnChanged,
+			"Ha cambiado el turno. Es el turno de  " + p.getName()));
 	}
 
 	@Override
 	public void winnerEvent(Player p) {
-		// TODO Auto-generated method stub
+		this.add(new GameEvent(EventType.WinnerEvent,
+			p.getName() + "ha ganado la partida."));
+	}
+
+	@Override
+	public Enumeration<GameEvent> elements() {
+		Enumeration<GameEvent> e = super.elements();
+		this.clear();
+		return e;
+	}
+
+	public ArrayList<GameEvent> getElements() {
+		Enumeration<GameEvent> e = this.elements();
+		ArrayList<GameEvent> listElements = new ArrayList<GameEvent>();
+		while (e.hasMoreElements())
+			listElements.add(e.nextElement());
+		return listElements;
 
 	}
 
