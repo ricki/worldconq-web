@@ -87,6 +87,19 @@
 			<result name="error">/actionError.jsp</result>
 			<result name="input">/actionInput.xml</result>
 		</action>
+		
+		<action name="moveUnits-*" class="com.umbrella.worldconq.actions.MoveUnitsAction"
+			method="show">
+			<param name="src">{1}</param>
+			<result name="*">/moveUnits.jsp</result>
+		</action>
+
+		<action name="do_moveUnits" class="com.umbrella.worldconq.actions.MoveUnitsAction"
+			method="execute">
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
 
 <!-- 		<action name="do_deploySpy-*" class="com.umbrella.worldconq.actions.DeploySpyAction" method="execute"> -->
 <!-- 			<param name="index">{1}</param> -->

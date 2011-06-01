@@ -16,6 +16,11 @@
 		</tr>
 
 		<tr>
+			<s:actionmessage />
+			<s:actionerror />
+		</tr>
+
+		<tr>
 			<div id="content">
 				<h1>Partidas Disponibles</h1>
 				<table width="100%" border="1">
