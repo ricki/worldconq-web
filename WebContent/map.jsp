@@ -24,7 +24,7 @@
    		var seleccionado = 0;
    		var territorio_seleccionado = "";
 		var datos = new Array();	
-		/*eliminar despues, cuando funcione el ajax
+		/*eliminar despues, cuando funcione el ajax*/
 		var xml2='<?xml version="1.0" encoding="UTF-8"?><gamedata><territories><territory><id>0</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>1</id><owner>a</owner><soldiers>13</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>2</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>3</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>4</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>5</id><owner>qwer</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>6</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>7</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>8</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>9</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>10</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>11</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>12</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>13</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>14</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>15</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>16</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>17</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>18</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>19</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>20</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>21</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>22</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>23</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>24</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>25</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>26</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>27</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>28</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>29</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>30</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>31</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>32</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>33</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>34</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>35</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>36</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>37</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>38</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>39</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>40</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory><territory><id>41</id><owner>?</owner><soldiers>0</soldiers><cannons><cannon>0</cannon><cannon>0</cannon><cannon>0</cannon></cannons><missiles>0</missiles><icbm>0</icbm><antimissiles>0</antimissiles></territory></territories><players><player><name>a</name><money>1000</money><state>1</state></player><player><name>qwer</name><money>1000</money><state>2</state></player></players></gamedata>';
 
 		if (window.DOMParser)
@@ -40,7 +40,7 @@
 		  }
 		
 		
-		eliminar hasta aqui*/
+		/*eliminar hasta aqui*/
 		
 		var ajax;
 		var array_territorios = new Array();
@@ -225,7 +225,7 @@
 				if( ajax.status == 200 )
 				{
 					// Escribimos el resultado en la pagina HTML mediante DHTML
-					xml = ajax.responseXML;
+					//xml = ajax.responseXML;
 					
 					refreshTerritories();
 					refreshUsers();
@@ -233,9 +233,59 @@
 					inicializarInfoGeneral();
 					inicializarInfoTerritorio();
 					drawTerritories();
+					checkEvents();
 					
 				}
 			}
+		}
+		
+		function callbackAjax()
+		{
+			// Comprobamos si la peticion se ha completado (estado 4)
+			if( ajax.readyState == 4 )
+			{
+				// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
+				if( ajax.status == 200 )
+				{
+					// Escribimos el resultado en la pagina HTML mediante DHTML
+				respuesta = ajax.responseXML;
+					
+				comprobarRespuestas(respuesta);
+					
+				}
+			}
+		}
+		
+		function checkEvents(){
+			var e = xml.getElementsByTagName('events');
+			
+			for(var i= 0; i<e.length; i++){
+				switch(e[i].getElementsByTagName('type')[0].firstChild.nodeValue){
+					case 0:
+						//evento de mensaje de texto
+						texto = document.getElementById('infoArea').innerHTML;
+						texto = texto+"\n"+e[i].getElementsByTagName('message')[0].firstChild.nodeValue;
+						document.getElementById('infoArea').innerHTML = texto;
+						break;
+					case 1:
+						GB_show('Estas siendo atacado!!!', '../underAttack.jsp');
+						break;
+					case 2:
+						soldiers = e[i].getElementsByTagName('soldiers')[0].firstChild.nodeValue;
+						money = e[i].getElementsByTagName('money')[0].firstChild.nodeValue;
+						texto = "Negociación:\n ¿Deseas negociar?\n "+soldiers+" Soldados.\n"+money+" Gallifantes.";
+						valor = confirm(texto);
+						if(valor){
+							//Aceptamos negociación.
+							responseNegotiationAjax(1);
+						}else{
+							//Rechazamos negociación
+							responseNegotiationAjax(0);
+						}
+						break;
+				}
+			}
+			
 		}
 		
 		function drawTerritories(){
@@ -318,6 +368,58 @@
  			ajax.send( "" );
 		}
 		
+		function buyTerritoryAjax()
+		{
+//			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+ 			if( window.XMLHttpRequest )
+ 				ajax = new XMLHttpRequest(); // No Internet Explorer
+ 			else
+ 				ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+//			Almacenamos en el control al funcion que se invocara cuando la peticion
+//			cambie de estado	
+ 			ajax.onreadystatechange = callbackAjax;
+//			Enviamos la peticion
+ 			ajax.open( "GET", "/worldconq-web/do_buyTerritory-"+territorio_seleccionado+".action", true );
+ 			ajax.send( "" );
+		}
+		
+		function spyTerritoryAjax()
+		{
+//			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+ 			if( window.XMLHttpRequest )
+ 				ajax = new XMLHttpRequest(); // No Internet Explorer
+ 			else
+ 				ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+//			Almacenamos en el control al funcion que se invocara cuando la peticion
+//			cambie de estado	
+ 			ajax.onreadystatechange = callbackAjax;
+//			Enviamos la peticion
+ 			ajax.open( "GET", "/worldconq-web/do_deploySpy-"+territorio_seleccionado+".action", true );
+ 			ajax.send( "" );
+		}
+		
+		function requestNegotiationAjax(accept)
+		{
+//			Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+ 			if( window.XMLHttpRequest )
+ 				ajax = new XMLHttpRequest(); // No Internet Explorer
+ 			else
+ 				ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+//			Almacenamos en el control al funcion que se invocara cuando la peticion
+//			cambie de estado	
+ 			ajax.onreadystatechange = callbackAjax;
+//			Enviamos la peticion
+			if(accept == 1){
+				ajax.open( "GET", "/worldconq-web/do_requestNegotiation.action", true );
+			}else{
+				ajax.open( "GET", "/worldconq-web/do_requestAttack.action", true );	
+			}
+ 			ajax.send( "" );
+		}
+		
 		function cargarDatosTerritorio(territorio){
 			//alert(xml);
 			//alert(array_territorios);
@@ -362,6 +464,49 @@
 			document.getElementById('infotres').innerHTML = texto;
 			
 		}
+		
+		function buyTerritory(territorio){
+			if(territorio != ""){
+				valor = confirm("¿Esta seguro de que desea comprar "+datos_paises[territorio][1]+" por "+datos_paises[territorio][2]+" Gallifantes?");
+				if(valor){
+					buyTerritoryAjax();
+				}
+			}else{
+				alert("Debe seleccianar un territorio");
+			}
+		}
+		
+		function sendSpy(territorio){
+			if(territorio != ""){
+				if(array_territorios[territorio][3] == "?" || array_territorios[territorio][3] == ""){
+					spyTerritoryAjax();
+				}else{
+					alert("No se puede espiar este territorio.");
+				}
+			}else{
+				alert("Debe seleccianar un territorio");
+			}
+		}
+		
+		//función a la que se le pasa una respuesta en xml y devuelve un alert.
+		function comprobarRespuestas(respuesta){
+			var r = respuesta.getElementsByTagName('status')[0].firstChild.nodeValue;
+			//alert(r);
+			if(r == "Success"){
+				alert("Operación realizada con exito");
+			}else if (r == "Input"){
+				alert("Los datos introducidos no son correctos");
+			}else{
+				
+				if(respuesta.getElementsByTagName('message')[0].firstChild == null){
+					alert("Se ha producido un error, la operación ha sido cancelada");
+				}else{
+					var m = respuesta.getElementsByTagName('message')[0].firstChild.nodeValue;
+					alert("Se ha producido un error:\n"+m);	
+				}
+			}
+			
+		}
 	</script>
 </head>
 
@@ -372,13 +517,13 @@
 		<table style="width: 100%">
 			<tr>
 				<td>
-					<input onclick="return GB_show('Comprar Territorio', '../buyTerritory.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
+					<input onclick="buyTerritory(territorio_seleccionado)" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
 					<input onclick="return GB_show('Atacar', '../attack.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Mandar Espia', '../buyUnits.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
+					<input onclick="sendSpy(territorio_seleccionado)" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
 					<input onclick="return GB_show('Mover tropas', '../moveUnits.jsp?territorio='+territorio_seleccionado);" type="image" disabled src="./image/botonmover_disabled.png" id="boton_mover" style="width: 95px; height: 35px;">
@@ -434,7 +579,10 @@
 				</tr>
 				<tr>
 					<td align="center" width="800" height="580">			  	
-                    <div id="mapa">				
+                    <div id="mapa">
+                    	<div class="infoArea" title="Información sobre los eventos" id="infoArea">
+							<textarea name="infoArea" cols="100" rows="2" readonly tabindex="3" style="font-family: Verdana; font-size: 8pt; color: #191919; font-weight: bold; border: 1px solid #422100; padding: 0; background-color:#9E7D45"></textarea>
+						</div>							
                 	<!--America del sur-->			
                         <div class="territorio" title="brasil" id="brasil" onClick="seleccionarTerritorio(35)"></div>
                         <div class="territorio" title="argentina" id="argentina" onClick="seleccionarTerritorio(34)"></div>
@@ -498,6 +646,7 @@
 			<td background="image/ldito.png" width="42" height="680">&nbsp;</td>
 		</tr>
 	</table>
+	<s:hidden name="index" value="" />
 <script>
 getInfoMap();
 </script>

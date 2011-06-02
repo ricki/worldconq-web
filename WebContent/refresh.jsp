@@ -42,13 +42,13 @@
 		</s:iterator>
 	</players>
 	<events>
-		<s:iterate value="events" status="itStatus">
+		<s:iterator value="events" status="itStatus">
 			<event>
 				<type><s:property value="type"/></type>
 				<message><s:property value="message"/></message>
 				<soldiers><s:property value="soldiers"/></soldiers>
 				<money><s:property value="money"/></money>
 			</event>
-		</s:iterate>
+		</s:iterator>
 	</events>
 </gamedata>

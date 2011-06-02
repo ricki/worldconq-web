@@ -74,6 +74,10 @@ background-position: center;
 	background-position: center;
 
 }
+#infoArea{
+position: absolute;
+top: 655px;
+}
 
 #brasil{
 width: 20px;
