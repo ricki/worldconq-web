@@ -15,14 +15,14 @@ position: absolute;
 .campo{
 	color: #422100;
 	font:Verdana, Geneva, sans-serif
-	font-size:11pt;
+	font-size:9pt;
 	font-weight:bold;
 	text-align:center;
 }
 
 .campo_texto{
 	font:Verdana, Geneva, sans-serif
-	font-size:11pt;
+	font-size:9pt;
 	text-align:center;
 }
 .tablados{
@@ -38,7 +38,7 @@ position: absolute;
 .tablauno th tr:nth-child(odd){
 	color: #422100;
 	font:Verdana, Geneva, sans-serif
-	font-size:11pt;
+	font-size:9pt;
 	font-weight:bold;
 	text-align:center;
 }
