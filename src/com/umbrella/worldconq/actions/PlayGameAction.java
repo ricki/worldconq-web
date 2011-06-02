@@ -2,6 +2,8 @@ package com.umbrella.worldconq.actions;
 
 import java.rmi.RemoteException;
 
+import com.umbrella.worldconq.domain.GameEventPool;
+
 import domain.Player;
 import exceptions.AlreadyInGameException;
 import exceptions.GameNotFoundException;
@@ -17,8 +19,11 @@ public class PlayGameAction extends WorldConqAction {
 	@Override
 	public String execute() {
 		try {
-			if (!checkPlaying())
-				getApp().getGameManager().connectToGame(id, null);
+			if (!checkPlaying()) {
+				GameEventPool pool = new GameEventPool();
+				getApp().setEventPool(pool);
+				getApp().getGameManager().connectToGame(getId(), pool);
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
@@ -29,31 +34,18 @@ public class PlayGameAction extends WorldConqAction {
 			this.addActionError("Error sesión inválida.");
 			session.remove("app");
 			session.remove("user");
-			e.printStackTrace();
 			return ERROR;
 		} catch (GameNotFoundException e) {
 			this.addActionError("No se ha podido localizar la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
-			e.printStackTrace();
 			return ERROR;
 		} catch (InvalidTimeException e) {
 			this.addActionError("No es buen momento para jugar. Tómate un café.");
-			session.remove("app");
-			session.remove("user");
-			e.printStackTrace();
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
 			this.addActionError("No estás unido a la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
-			e.printStackTrace();
 			return ERROR;
 		} catch (AlreadyInGameException e) {
 			this.addActionError("Ya estás conectado a la partida seleccionada.");
-			session.remove("app");
-			session.remove("user");
-			e.printStackTrace();
 			return ERROR;
 		}
 		return SUCCESS;
