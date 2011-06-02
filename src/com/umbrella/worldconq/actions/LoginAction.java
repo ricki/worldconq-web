@@ -19,7 +19,6 @@ public class LoginAction extends WorldConqAction {
 			getApp().getUserManager().createSession(getUsername(),
 				getPassword());
 		} catch (RemoteException e) {
-			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
 			session.remove("user");

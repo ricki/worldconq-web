@@ -13,6 +13,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 	private static final long serialVersionUID = 6821723529422415677L;
 
 	protected Map<String, Object> session;
+	private String exceptionMessage;
 
 	@Override
 	public void setSession(Map<String, Object> arg0) {
@@ -25,7 +26,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 
 	protected boolean checkLogged() {
 		if (getApp().getUserManager().getSession() == null) {
-			this.addActionError("El usuario debe estar logueado.");
+			this.setExceptionMessage("El usuario debe estar logueado.");
 			return false;
 		}
 		return true;
@@ -33,7 +34,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 
 	protected boolean checkPlaying() {
 		if (getApp().getGameManager().getGameEngine() == null) {
-			this.addActionError("El usuario debe estar jugando.");
+			this.setExceptionMessage("El usuario debe estar jugando.");
 			return false;
 		}
 		return true;
@@ -55,6 +56,14 @@ public abstract class WorldConqAction extends ActionSupport implements
 			session.remove("user");
 		}
 		return app;
+	}
+
+	public void setExceptionMessage(String exceptionMessage) {
+		this.exceptionMessage = exceptionMessage;
+	}
+
+	public String getExceptionMessage() {
+		return exceptionMessage;
 	}
 
 }

@@ -15,13 +15,8 @@ public class LogoutAction extends WorldConqAction {
 	public String execute() {
 		try {
 			getApp().getUserManager().closeSession();
-			session.remove("app");
-			session.remove("user");
 		} catch (RemoteException e) {
-			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
-			session.remove("app");
-			session.remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
 			this.addActionError("Partida no encontrada.");
@@ -37,10 +32,10 @@ public class LogoutAction extends WorldConqAction {
 			return ERROR;
 		} catch (Exception e) {
 			this.addActionError("Excepción desconocida.");
-			session.remove("app");
-			session.remove("user");
 			return ERROR;
 		}
+		session.remove("app");
+		session.remove("user");
 		return SUCCESS;
 	}
 

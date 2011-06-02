@@ -9,15 +9,16 @@ import exceptions.InvalidSessionException;
 
 public class JoinGameAction extends WorldConqAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8078209054558646998L;
 	private int id;
 
 	@Override
 	public String execute() {
-		System.out.println("JoinGameAction::execute");
+		if (!checkLogged()) {
+			this.addActionError("Usuario no está logeado.");
+			return ERROR;
+		}
+
 		try {
 			getApp().getGameManager().joinGame(getId());
 		} catch (RemoteException e) {

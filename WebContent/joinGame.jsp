@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Refresh" content="5;/worldconq-web/listGames.action">
+<meta http-equiv="Refresh" content="1;/worldconq-web/listGames.action">
 <title>Join game</title>
 </head>
 

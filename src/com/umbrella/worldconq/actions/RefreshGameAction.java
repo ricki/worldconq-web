@@ -6,7 +6,6 @@ import com.umbrella.worldconq.domain.GameEngine;
 import com.umbrella.worldconq.domain.GameEvent;
 import com.umbrella.worldconq.domain.MapModel;
 import com.umbrella.worldconq.domain.PlayerListModel;
-import com.umbrella.worldconq.domain.Session;
 
 import domain.Player;
 import domain.Territory;
@@ -19,14 +18,9 @@ public class RefreshGameAction extends WorldConqAction {
 	private ArrayList<Territory> map;
 	private ArrayList<GameEvent> events;
 
-	private String exceptionMessage;
-
 	@Override
 	public String execute() {
-		if (!checkLogged() || !checkPlaying()) {
-			this.addActionError("El ususario debe estar logueado y jugando.");
-			return ERROR;
-		}
+		if (!checkLogged() || !checkPlaying()) return ERROR;
 
 		GameEngine engine = getApp().getGameManager().getGameEngine();
 
@@ -82,14 +76,6 @@ public class RefreshGameAction extends WorldConqAction {
 
 	public ArrayList<GameEvent> getEvents() {
 		return events;
-	}
-
-	public void setExceptionMessage(String exceptionMessage) {
-		this.exceptionMessage = exceptionMessage;
-	}
-
-	public String getExceptionMessage() {
-		return exceptionMessage;
 	}
 
 }

@@ -60,7 +60,8 @@
 		<action name="joinGame-*" class="com.umbrella.worldconq.actions.JoinGameAction"
 			method="execute">
 			<param name="id">{1}</param>
-			<result name="*">/joinGame.jsp</result>
+			<result name="success">/joinGame.jsp</result>
+			<result name="*">/index.jsp</result>
 		</action>
 
 		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshGameAction"
@@ -92,7 +93,7 @@
 		
 		<action name="moveUnits-*" class="com.umbrella.worldconq.actions.MoveUnitsAction"
 			method="show">
-			<param name="src">{1}</param>
+			<param name="index">{1}</param>
 			<result name="*">/moveUnits.jsp</result>
 		</action>
 
@@ -116,12 +117,12 @@
 			<result name="*">/attack.jsp</result>
 		</action>
 
-<!-- 		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction" -->
-<!-- 			method="execute"> -->
-<!-- 			<result name="success">/actionSuccess.xml</result> -->
-<!-- 			<result name="error">/actionError.jsp</result> -->
-<!-- 			<result name="input">/actionInput.xml</result> -->
-<!-- 		</action> -->
+		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction"
+			method="execute">
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
 
 		<action name="underAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
 			method="show">
@@ -142,13 +143,13 @@
 			<result name="input">/actionInput.xml</result>
 		</action>
 
-<!-- 		<action name="do_accept*" -->
-<!-- 			class="com.umbrella.worldconq.actions.ResolveAttackAction" method="execute"> -->
-<!-- 			<param name="option">{1}</param> -->
-<!-- 			<result name="success">/actionSuccess.xml</result> -->
-<!-- 			<result name="error">/actionError.jsp</result> -->
-<!-- 			<result name="input">/actionInput.xml</result> -->
-<!-- 		</action> -->
+		<action name="do_resolve*"
+			class="com.umbrella.worldconq.actions.ResolveAttackAction" method="execute">
+			<param name="option">{1}</param>
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
 
 	</package>
 

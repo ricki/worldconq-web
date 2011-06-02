@@ -14,7 +14,6 @@ import exceptions.InvalidTimeException;
 public class UnderAttackAction extends WorldConqAction {
 
 	private static final long serialVersionUID = -7228418678746042546L;
-	private String exceptionMessage;
 	private Attack currentAttack;
 	private int money;
 	private int soldiers;
@@ -91,14 +90,6 @@ public class UnderAttackAction extends WorldConqAction {
 
 	public Attack getCurrentAttack() {
 		return currentAttack;
-	}
-
-	String getExceptionMessage() {
-		return exceptionMessage;
-	}
-
-	void setExceptionMessage(String msg) {
-		this.exceptionMessage = msg;
 	}
 
 	public void setMoney(int money) {

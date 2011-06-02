@@ -14,58 +14,46 @@ import exceptions.NotCurrentPlayerGameException;
 
 public class BuyTerritoryAction extends WorldConqAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5065037957984499211L;
 
 	private int index;
 
 	@Override
 	public String execute() {
+		if (!checkLogged() || !checkPlaying()) return ERROR;
+
 		try {
-			if (getApp().getUserManager().getSession() == null
-					|| getApp().getGameManager().getGameEngine() == null) {
-				session.remove("app");
-				session.remove("user");
-				return ERROR;
-			}
 			getApp().getGameManager().getGameEngine().buyTerritory(getIndex());
 		} catch (RemoteException e) {
-			e.printStackTrace();
-			this.addActionError("Error con el servidor remoto.");
+			this.setExceptionMessage("Error con el servidor remoto.");
+			getSession().remove("app");
+			getSession().remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.addActionError("Error sesión inválida.");
-			e.printStackTrace();
+			this.setExceptionMessage("Error sesión inválida.");
+			getSession().remove("app");
+			getSession().remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.addActionError("No se ha podido localizar la partida seleccionada.");
-			e.printStackTrace();
+			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
 			return ERROR;
 		} catch (final NotCurrentPlayerGameException e) {
-			this.addActionError("El usuario debe de estar en la partida ");
-			e.printStackTrace();
+			this.setExceptionMessage("El usuario debe de estar en la partida ");
 			return ERROR;
 		} catch (final OutOfTurnException e) {
-			this.addActionError("Accion realizada fuera de turno.");
-			e.printStackTrace();
+			this.setExceptionMessage("Accion realizada fuera de turno.");
 			return ERROR;
 		} catch (final PendingAttackException e) {
-			this.addActionError("Hay otro ataque en curso");
-			e.printStackTrace();
+			this.setExceptionMessage("Hay otro ataque en curso");
 			return ERROR;
 		} catch (final NotEnoughMoneyException e) {
-			this.addActionError("No tienes dinero suficiente para la acción seleccionada");
-			e.printStackTrace();
+			this.setExceptionMessage("No tienes dinero suficiente para la acción seleccionada");
 			return ERROR;
 		} catch (final OcupiedTerritoryException e) {
-			this.addActionError("El territorio seleccionado está ocupado");
-			e.printStackTrace();
+			this.setExceptionMessage("El territorio seleccionado está ocupado");
 			return ERROR;
 		} catch (final InvalidTerritoryException e) {
-			this.addActionError("El territorio seleccionado no es válido");
-			e.printStackTrace();
+			this.setExceptionMessage("El territorio seleccionado no es válido");
 			return ERROR;
 		}
 		return SUCCESS;

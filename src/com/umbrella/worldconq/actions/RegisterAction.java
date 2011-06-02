@@ -14,10 +14,6 @@ public class RegisterAction extends WorldConqAction {
 	private String password;
 	private String email;
 
-	public RegisterAction() {
-		super();
-	}
-
 	@Override
 	public String execute() {
 		try {

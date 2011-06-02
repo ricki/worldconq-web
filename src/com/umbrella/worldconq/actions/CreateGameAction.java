@@ -29,6 +29,11 @@ public class CreateGameAction extends WorldConqAction {
 
 	@Override
 	public String execute() {
+		if (!checkLogged()) {
+			this.addActionError("Usuario no está logeado.");
+			return ERROR;
+		}
+
 		ArrayList<Calendar> gameS = new ArrayList<Calendar>();
 		SimpleDateFormat sdf = new SimpleDateFormat
 				("dd-MM-yyyy HH:mm");
@@ -38,8 +43,7 @@ public class CreateGameAction extends WorldConqAction {
 			try {
 				d = sdf.parse(date);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return INPUT;
 			}
 			Calendar c = Calendar.getInstance();
 			c.setTime(d);
@@ -47,27 +51,20 @@ public class CreateGameAction extends WorldConqAction {
 		}
 
 		try {
-
-			System.out.println("nombre: " + getName());
-			System.out.println("descripcion " + getDescription());
-			System.out.println("turno " + getTurnTime());
-			System.out.println("def " + getDefTime());
-			System.out.println("neg " + getNegTime());
-			System.out.println("session" + getGameSessions().toString());
-
 			getApp().getGameManager().createGame(getName(), getDescription(),
 				gameS, getTurnTime(), getDefTime(), getNegTime());
 		} catch (RemoteException e) {
-			e.printStackTrace();
 			this.addActionError("Error con el servidor remoto.");
+			session.remove("app");
+			session.remove("user");
+			return ERROR;
+		} catch (InvalidSessionException e) {
+			this.addActionError("Session incorrecta.");
 			session.remove("app");
 			session.remove("user");
 			return ERROR;
 		} catch (InvalidGameInfoException e) {
 			this.addActionError("Datos de partida incorrectos.");
-			return ERROR;
-		} catch (InvalidSessionException e) {
-			this.addActionError("Session incorrecta.");
 			return ERROR;
 		} catch (EmptyStringException e) {
 			this.addActionError("Error al crear partida2.");
