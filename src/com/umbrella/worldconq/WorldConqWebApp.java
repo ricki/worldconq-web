@@ -8,15 +8,17 @@ import java.rmi.RemoteException;
 
 import com.umbrella.worldconq.comm.ClientAdapter;
 import com.umbrella.worldconq.comm.ServerAdapter;
+import com.umbrella.worldconq.domain.GameEventPool;
 import com.umbrella.worldconq.domain.GameManager;
 import com.umbrella.worldconq.domain.UserManager;
 
 public class WorldConqWebApp {
 
-	UserManager userManager = null;
-	GameManager gameManager = null;
-	ServerAdapter serverAdapter = null;
-	ClientAdapter clientAdapter = null;
+	private UserManager userManager = null;
+	private GameManager gameManager = null;
+	private GameEventPool eventPool;
+	private ServerAdapter serverAdapter = null;
+	private ClientAdapter clientAdapter = null;
 
 	public WorldConqWebApp() {
 		try {
@@ -76,6 +78,14 @@ public class WorldConqWebApp {
 	 */
 	protected void setGameManager(GameManager gameManager) {
 		this.gameManager = gameManager;
+	}
+
+	public GameEventPool getEventPool() {
+		return eventPool;
+	}
+
+	public void setEventPool(GameEventPool eventPool) {
+		this.eventPool = eventPool;
 	}
 
 }

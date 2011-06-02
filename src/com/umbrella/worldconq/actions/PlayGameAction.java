@@ -2,6 +2,7 @@ package com.umbrella.worldconq.actions;
 
 import java.rmi.RemoteException;
 
+import com.umbrella.worldconq.domain.GameEventPool;
 import com.umbrella.worldconq.domain.GameManager;
 
 import domain.Player;
@@ -20,7 +21,11 @@ public class PlayGameAction extends WorldConqAction {
 	public String execute() {
 		GameManager mgr = getApp().getGameManager();
 		try {
-			mgr.connectToGame(getId(), null);
+			if (!checkPlaying()) {
+				GameEventPool pool = new GameEventPool();
+				getApp().setEventPool(pool);
+				mgr.connectToGame(getId(), pool);
+			}
 		} catch (RemoteException e) {
 			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");

@@ -3,6 +3,7 @@ package com.umbrella.worldconq.actions;
 import java.util.ArrayList;
 
 import com.umbrella.worldconq.domain.GameEngine;
+import com.umbrella.worldconq.domain.GameEvent;
 import com.umbrella.worldconq.domain.MapModel;
 import com.umbrella.worldconq.domain.PlayerListModel;
 import com.umbrella.worldconq.domain.Session;
@@ -12,42 +13,40 @@ import domain.Territory;
 
 public class RefreshGameAction extends WorldConqAction {
 
+	private static final long serialVersionUID = -1061243041072947248L;
+
 	private ArrayList<Player> players;
 	private ArrayList<Territory> map;
+	private ArrayList<GameEvent> events;
 
 	private String exceptionMessage;
 
 	@Override
 	public String execute() {
-		Session sess = getApp().getUserManager().getSession();
+		if (!checkLogged() || !checkPlaying()) {
+			this.addActionError("El ususario debe estar logueado y jugando.");
+			return ERROR;
+		}
+
 		GameEngine engine = getApp().getGameManager().getGameEngine();
-		if (sess == null) {
-			setExceptionMessage("Session is null");
-			return ERROR;
-		}
-		if (engine == null) {
-			setExceptionMessage("GameEngine is null");
-			return ERROR;
-		}
-		PlayerListModel playerList = getApp().getGameManager().getGameEngine().getPlayerListModel();
-		players = new ArrayList<Player>();
 
+		PlayerListModel playerList = engine.getPlayerListModel();
+		setPlayers(new ArrayList<Player>());
 		for (int i = 0; i < playerList.getRowCount(); i++)
-			players.add(playerList.getPlayerAt(i));
+			getPlayers().add(playerList.getPlayerAt(i));
 
-		MapModel mapList = getApp().getGameManager().getGameEngine().getMapListModel();
-		map = new ArrayList<Territory>();
-
+		MapModel mapList = engine.getMapListModel();
+		setMap(new ArrayList<Territory>());
 		for (int i = 0; i < mapList.getRowCount(); i++) {
 			int cannons[] = new int[3];
 
 			if (mapList.getValueAt(i, 1).equals("¿?"))
-				map.add(new Territory(i, null, null, 0, cannons, 0, 0, 0));
+				getMap().add(new Territory(i, null, null, 0, cannons, 0, 0, 0));
 			else {
 				cannons[0] = (Integer) mapList.getValueAt(i, 3);
 				cannons[1] = (Integer) mapList.getValueAt(i, 4);
 				cannons[2] = (Integer) mapList.getValueAt(i, 5);
-				map.add(new Territory(i, null,
+				getMap().add(new Territory(i, null,
 					(String) mapList.getValueAt(i, 1),
 					(Integer) mapList.getValueAt(i, 2), cannons,
 					(Integer) mapList.getValueAt(i, 6),
@@ -55,23 +54,34 @@ public class RefreshGameAction extends WorldConqAction {
 					(Integer) mapList.getValueAt(i, 8)));
 			}
 		}
-		setMap(map);
-		setPlayers(players);
+
+		setEvents(getApp().getEventPool().getElements());
+
 		return SUCCESS;
+	}
+
+	public void setPlayers(ArrayList<Player> players) {
+		this.players = players;
 	}
 
 	public ArrayList<Player> getPlayers() {
 		return players;
 	}
 
-	public void setPlayers(ArrayList<Player> players) {
+	public void setMap(ArrayList<Territory> map) {
+		this.map = map;
 	}
 
 	public ArrayList<Territory> getMap() {
 		return map;
 	}
 
-	public void setMap(ArrayList<Territory> map) {
+	public void setEvents(ArrayList<GameEvent> events) {
+		this.events = events;
+	}
+
+	public ArrayList<GameEvent> getEvents() {
+		return events;
 	}
 
 	public void setExceptionMessage(String exceptionMessage) {
