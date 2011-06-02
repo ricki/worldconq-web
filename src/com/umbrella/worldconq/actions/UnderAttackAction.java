@@ -26,41 +26,63 @@ public class UnderAttackAction extends WorldConqAction {
 		return SUCCESS;
 	}
 
-	public void executeAttack() {
+	public String executeAttack() {
 		try {
 			getApp().getGameManager().getGameEngine().acceptAttack();
 		} catch (RemoteException e) {
 			this.setExceptionMessage("Error con el servidor remoto.");
-		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			getSession().remove("app");
+			getSession().remove("user");
+			return ERROR;
 		} catch (InvalidSessionException e) {
 			this.setExceptionMessage("Error sesión inválida.");
+			getSession().remove("app");
+			getSession().remove("user");
+			return ERROR;
+		} catch (GameNotFoundException e) {
+			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			return ERROR;
 		} catch (InvalidTimeException e) {
 			this.setExceptionMessage("Tiempo no válido.");
+			return ERROR;
 		} catch (OutOfTurnException e) {
 			this.setExceptionMessage("Accion realizada fuera de turno.");
+			return ERROR;
 		}
+		return SUCCESS;
 	}
 
-	public void executeNegotiation() {
+	public String executeNegotiation() {
 		try {
 			getApp().getGameManager().getGameEngine().requestNegotiation(
 					getMoney(), getSoldiers());
 		} catch (RemoteException e) {
 			this.setExceptionMessage("Error con el servidor remoto.");
-		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			getSession().remove("app");
+			getSession().remove("user");
+			return ERROR;
 		} catch (InvalidSessionException e) {
 			this.setExceptionMessage("Error sesión inválida.");
+			getSession().remove("app");
+			getSession().remove("user");
+			return ERROR;
+		} catch (GameNotFoundException e) {
+			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			return ERROR;
 		} catch (InvalidTimeException e) {
 			this.setExceptionMessage("Tiempo no válido.");
+			return ERROR;
 		} catch (OutOfTurnException e) {
 			this.setExceptionMessage("Accion realizada fuera de turno.");
+			return ERROR;
 		} catch (NotEnoughMoneyException e) {
 			this.setExceptionMessage("No tienes dinero suficiente para la acción seleccionada");
+			return ERROR;
 		} catch (NotEnoughUnitsException e) {
 			this.setExceptionMessage("No tienes soldados suficiente para la acción seleccionada");
+			return ERROR;
 		}
+		return SUCCESS;
 	}
 
 	public void setCurrentAttack(Attack currentAttack) {
