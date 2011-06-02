@@ -26,7 +26,6 @@ public class BuyTerritoryAction extends WorldConqAction {
 		try {
 			if (getApp().getUserManager().getSession() == null
 					|| getApp().getGameManager().getGameEngine() == null) {
-				this.addActionError("El ususario debe estar logueado y jugando.");
 				session.remove("app");
 				session.remove("user");
 				return ERROR;

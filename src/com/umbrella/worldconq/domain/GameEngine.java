@@ -102,6 +102,10 @@ public class GameEngine implements ClientCallback {
 		return mGame;
 	}
 
+	public Attack getCurrentAttack() {
+		return mCurrentAttack;
+	}
+
 	public void setMapListModel(MapModel mMapListModel) {
 		this.mMapListModel = mMapListModel;
 	}
