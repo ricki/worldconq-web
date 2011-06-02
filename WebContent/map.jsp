@@ -93,7 +93,7 @@
 					document.getElementById('boton_atacar').src="./image/botonatacar_disabled.png";
 					
 				}
-				
+				drawTerritories();
 				 
 			}else if (seleccionado == 1 && territorio_seleccionado != territorio){
 				//alert(territorio_seleccionado +" Atacar "+ territorio);
@@ -141,6 +141,8 @@
 					document.getElementById('boton_atacar').src="./image/botonatacar_disabled.png";
 					
 				}
+				
+				drawTerritories();
 				
 			}else{
 				seleccionado = 0;
@@ -211,6 +213,9 @@
 			texto = texto + "<tr><td class='campo'>Propietario:</td><td class='campo_texto'></td></tr>";
 			texto = texto + "<tr><td class='campo'>Soldados:</td><td class='campo_texto'></td></tr>";
 			texto = texto + "<tr><td class='campo'>Cañones:</td><td class='campo_texto'></td></tr>";
+			texto = texto + "<tr><td class='campo'>Misiles:</td><td class='campo_texto'></td></tr>";
+			texto = texto + "<tr><td class='campo'>Antimisiles:</td><td class='campo_texto'></td></tr>";
+			texto = texto + "<tr><td class='campo'>ICBM:</td><td class='campo_texto'></td></tr>";
 			texto = texto + "</table>";
 			
 			document.getElementById('infotres').innerHTML = texto;
@@ -231,9 +236,12 @@
 					refreshUsers();
 					inicializarTablaUsuarios();
 					inicializarInfoGeneral();
-					inicializarInfoTerritorio();
+					if(territorio_seleccionado == ""){
+						inicializarInfoTerritorio();	
+					}
 					drawTerritories();
 					checkEvents();
+
 					
 				}
 			}
@@ -302,7 +310,7 @@
 			//volvemos a marcar el territorio seleccionado si lo habia
 			if(seleccionado == 1){
 				document.getElementById(datos_paises[territorio_seleccionado][0]).setAttribute('class','territorio_seleccionado');
-				cargarDatosTerritorio(territorio);
+				cargarDatosTerritorio(territorio_seleccionado);
 			}
 		}
 		
@@ -433,13 +441,12 @@
 					info_territorio[1] = array_territorios[j][1];
 					if(array_territorios[j][2] != ""){
 						info_territorio[2] = array_territorios[j][2];
-						info_territorio[3] = "";
-						info_territorio[4] = "";
-						info_territorio[5] = "";
-						info_territorio[6] = "";
-						info_territorio[7] = "";
-						info_territorio[8] = "";
-						info_territorio[9] = "";
+						info_territorio[3] = array_territorios[j][3];//propietario
+						info_territorio[4] = array_territorios[j][4];//soldados
+						info_territorio[5] = array_territorios[j][5]+" - "+array_territorios[j][6]+" - "+array_territorios[j][7];//cañones
+						info_territorio[6] = array_territorios[j][8];//misiles
+						info_territorio[7] = array_territorios[j][10];//icbm
+						info_territorio[8] = array_territorios[j][9];//antimisiles
 					}else{
 						info_territorio[2] = "";
 						info_territorio[3] = "";
@@ -448,7 +455,6 @@
 						info_territorio[6] = "";
 						info_territorio[7] = "";
 						info_territorio[8] = "";
-						info_territorio[9] = "";
 					}
 				}
 			}
@@ -459,6 +465,9 @@
 			texto = texto + "<tr><td class='campo'>Propietario:</td><td class='campo_texto'>"+info_territorio[3]+"</td></tr>";
 			texto = texto + "<tr><td class='campo'>Soldados:</td><td class='campo_texto'>"+info_territorio[4]+"</td></tr>";
 			texto = texto + "<tr><td class='campo'>Cañones:</td><td class='campo_texto'>"+info_territorio[5]+"</td></tr>";
+			texto = texto + "<tr><td class='campo'>Misiles:</td><td class='campo_texto'>"+info_territorio[6]+"</td></tr>";
+			texto = texto + "<tr><td class='campo'>Antimisiles:</td><td class='campo_texto'>"+info_territorio[7]+"</td></tr>";
+			texto = texto + "<tr><td class='campo'>ICBM:</td><td class='campo_texto'>"+info_territorio[8]+"</td></tr>";
 			texto = texto + "</table>";
 			//alert(texto);
 			document.getElementById('infotres').innerHTML = texto;
@@ -568,7 +577,7 @@
 							</tr>
 							<tr>
 								<td align="center" valign="top" background="image/cinchotres.png" width="250" height="245">
-                                <div id="infotres" style="overflow:auto; height:195px; width:190px; padding-top: 20px">
+                                <div id="infotres" style="overflow:auto; height:195px; width:190px; padding-top: 5px">
 								
 								</div>
 								</td>
