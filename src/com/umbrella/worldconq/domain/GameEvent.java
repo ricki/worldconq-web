@@ -1,32 +1,57 @@
 package com.umbrella.worldconq.domain;
 
-
 public class GameEvent {
 
-	private EventType type;
-
+	private int type;
 	private String message;
+	private int soldiers;
+	private int money;
 
-	public GameEvent(EventType type, String message) {
-		super();
-		this.type = type;
-		this.message = message;
+	public GameEvent(String message) {
+		setType(0);
+		setMessage(message);
 	}
 
-	public EventType getType() {
+	public GameEvent() {
+		setType(1);
+	}
+
+	public GameEvent(int soldiers, int money) {
+		setType(2);
+		setSoldiers(soldiers);
+		setMoney(money);
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getType() {
 		return type;
 	}
 
-	public void setType(EventType type) {
-		this.type = type;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public String getMessage() {
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setSoldiers(int soldiers) {
+		this.soldiers = soldiers;
+	}
+
+	public int getSoldiers() {
+		return soldiers;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public int getMoney() {
+		return money;
 	}
 
 }
