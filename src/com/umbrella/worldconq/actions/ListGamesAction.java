@@ -21,6 +21,10 @@ public class ListGamesAction extends WorldConqAction {
 	@Override
 	public String execute() {
 		try {
+			if (!checkLogged()) {
+				this.addActionError("Usuario no está logeado.");
+				return ERROR;
+			}
 			getApp().getGameManager().updateGameList();
 		} catch (RemoteException e) {
 			e.printStackTrace();
