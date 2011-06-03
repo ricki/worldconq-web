@@ -661,7 +661,6 @@
 	</table>
 	<s:hidden name="index" value="" />
 <script>
-document.getElementById('self_user').value="qwer";
 getInfoMap();
 </script>
 </body>
