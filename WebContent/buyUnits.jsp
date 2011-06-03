@@ -50,7 +50,7 @@
 				<table>
 					<tr>
 						<td>Dinero Disponible</td>
-						<td><s:text name="money"></s:text></td>
+						<td><s:property value="money"/></td>
 					</tr>
 
 					<tr>
