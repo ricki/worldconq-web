@@ -82,9 +82,10 @@ public class MapModel extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		if (columnIndex < 0 || columnIndex >= this.getColumnCount())
 			throw new IndexOutOfBoundsException("Index: " + columnIndex
-				+ ", Size" + this.getColumnCount());
+					+ ", Size" + this.getColumnCount());
 
 		boolean hasSpy = false;
+		boolean isAdjacent = false;
 		final TerritoryDecorator t = data.get(rowIndex);
 
 		if (t.getPlayer() != null) {
@@ -94,7 +95,14 @@ public class MapModel extends AbstractTableModel {
 					hasSpy = true;
 				}
 			}
-			if (t.getPlayer().equals(selfPlayer) || hasSpy) {
+
+			for (final TerritoryDecorator td : t.getAdjacentTerritories()) {
+				if (td.getPlayer().equals(selfPlayer)) {
+					isAdjacent = true;
+				}
+			}
+
+			if (t.getPlayer().equals(selfPlayer) || hasSpy || isAdjacent) {
 
 				switch (columnIndex) {
 				case 0:
