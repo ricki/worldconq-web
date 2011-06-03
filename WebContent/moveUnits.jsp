@@ -153,17 +153,15 @@ var territorio = <s:property value="index" />;
 cargarAdyacentes();
 
 function cargarAdyacentes(){
-	//territorio = 1, esta variable se coge de la función que se ejecuta al principio;
-	
-	territorios_adyacentes = adyacentes[territorio];
-	
+
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
 		array.add( <s:property/>);
 	</s:iterator>
+	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
 	for(var id in array){
-		option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
+		option = option + "<option value ="+array[id]+">"+datos_paises[array[id]][1]+"</option>";
 	}
 	
 	document.getElementById('territory_move').innerHTML = option;
