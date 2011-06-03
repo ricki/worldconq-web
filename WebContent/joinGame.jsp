@@ -9,11 +9,17 @@
 <title>Worldconq - Join game</title>
 </head>
 
-<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
+<body bgcolor="#000000" background="image/mapafondobig.jpg" style="background-attachment: fixed; background-position: 50% 25%; background-repeat: no-repeat;">
 	<s:actionmessage />
 	<s:actionerror />
 	<div align=center>
-		<s:a action="listGames.action">Volver a la lista de partidas...</s:a>
+	<table align="center" style="padding-top: 200px">
+		<tr>
+		<td>
+			<s:a action="listGames.action">Volver a la lista de partidas...</s:a>
+		</td>
+		</tr>
+	</table>
 	</div>
 </body>
 
