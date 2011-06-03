@@ -58,6 +58,7 @@ public class AttackAction extends WorldConqAction {
 			if (target != null && !target.equals(self))
 				adj.add(new Integer(t.getId()));
 		}
+		this.setAvailableTargets(adj);
 		return SUCCESS;
 	}
 
@@ -192,10 +193,12 @@ public class AttackAction extends WorldConqAction {
 		return availableTargets;
 	}
 
+	@Override
 	public void setExceptionMessage(String exceptionMessage) {
 		this.exceptionMessage = exceptionMessage;
 	}
 
+	@Override
 	public String getExceptionMessage() {
 		return exceptionMessage;
 	}

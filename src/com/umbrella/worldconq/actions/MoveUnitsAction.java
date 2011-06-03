@@ -52,6 +52,7 @@ public class MoveUnitsAction extends WorldConqAction {
 			if (target != null && target.equals(self))
 				adj.add(new Integer(td.getId()));
 		}
+		this.setAvailableTargets(adj);
 		return SUCCESS;
 	}
 
