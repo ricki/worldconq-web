@@ -6,7 +6,7 @@ import exceptions.GameNotFoundException;
 import exceptions.InvalidSessionException;
 import exceptions.NotCurrentPlayerGameException;
 
-public class ResolveAttackAttack extends WorldConqAction {
+public class ResolveAttackAction extends WorldConqAction {
 
 	private static final long serialVersionUID = -1398735491575138577L;
 	private String option;
