@@ -11,14 +11,6 @@
 <script type="text/javascript">
 //script para recoger en variables de javascript lo que hayamos pasado por get en la url.
 
-var Url = location.href;
-Url = Url.replace(/.*\?(.*?)/,"$1");
-Variables = Url.split ("&");
-for (i = 0; i < Variables.length; i++) {
-       Separ = Variables[i].split("=");
-       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
-}
-
 </script>
 </head>
 <body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
@@ -121,8 +113,8 @@ function cargarAdyacentes(){
 	
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		alert(<s:property/>);
-		array["%{itStatus.index}"] = <s:property/>;
+		alert(<s:property/> + " is at " + array.length);
+		array[array.length] = <s:property/>;
 	</s:iterator>
 	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";

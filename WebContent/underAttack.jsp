@@ -108,10 +108,10 @@
 						<td><s:textfield name="soldiers" readonly="true"
 								id="soldiers" value="0" theme="simple" />
 						</td>
-						<td><input type="button" value="+" id="addSoliers"
+						<td><input type="button" value="+" id="addSoldiers"
 							onclick="add('soldiers')" />
 						</td>
-						<td><input type="button" value="-" id="lessSoliers"
+						<td><input type="button" value="-" id="lessSoldiers"
 							onclick="del('soldiers')" />
 						</td>
 					</tr>

@@ -649,9 +649,9 @@
 				</tr>		
 				<tr>
 					<td align="top" width="800" height="100">			  	
-                    <!-- <div class="infoArea" title="Informaci�n sobre los eventos" id="infoArea"> -->
-						<textarea name="infoArea" readOnly cols="85" rows="2" tabindex="3" style="font-family: Verdana; font-size: 11pt; color: #191919; font-weight: bold; border: 1px solid #422100; padding: 0; background-color:#9E7D45"></textarea>
-					<!-- </div> -->
+                    <div class="infoArea" title="Información sobre los eventos" id="infoArea">
+						<textarea name="infoArea" id="infoArea" readOnly cols="85" rows="2" tabindex="3" style="font-family: Verdana; font-size: 11pt; color: #191919; font-weight: bold; border: 1px solid #422100; padding: 0; background-color:#9E7D45"></textarea>
+					</div>
                     </td>
 				</tr>		
 			</table>
