@@ -57,11 +57,11 @@
 
 </head>
 
-<body>
+<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
 	<s:include value="header.jsp" />
 
 	<%-- nombre, descripcion, lista sesiones, turno, defensa time, negociacion time --%>
-
+<div align=center>
 	<s:div id="content">
 
 		<h2>Crear Partida</h2>
@@ -103,7 +103,7 @@
 
 		</s:form>
 	</s:div>
-
+</div>
 
 </body>
 </html>

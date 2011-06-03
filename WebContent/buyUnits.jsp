@@ -44,6 +44,7 @@
 
 </head>
 <body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
+<div align=center >
 	<s:div id="content">
 		<s:form name="buyUnit" action="do_buyUnits">
 			<s:div id="nombre">
@@ -136,6 +137,6 @@
 			</s:div>
 		</s:form>
 	</s:div>
-
+</div>
 </body>
 </html>
