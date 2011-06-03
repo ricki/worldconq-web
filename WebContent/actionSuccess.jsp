@@ -10,7 +10,7 @@
 <table align="center" style="text-align: center; padding-top: 75px">
 	<tr style="text-align: center;">
 		<td>
-			<label class = "campo">El ataque se ha lanzado correctamente.</label> 
+			<label class = "campo">La operación se ha lanzado correctamente.</label> 
 		</td>
 	</tr>
 	<tr style="text-align: center;">	
