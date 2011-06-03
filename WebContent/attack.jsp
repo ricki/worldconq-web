@@ -24,6 +24,7 @@ for (i = 0; i < Variables.length; i++) {
 <body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
 	<s:form action="do_attack">
 	<table align="center" style="padding-top: 30px">
+		<tr><td><s:property value="availableTargets" /></td></tr>
 		<tr style="text-align: center;">
 			<td>
 				<select id="territory_attack" onchange="changeTerritory()"></select>
@@ -120,7 +121,8 @@ function cargarAdyacentes(){
 	
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		array.add( <s:property/>);
+		alert(<s:property/>);
+		array["%{itStatus.index}"] = <s:property/>;
 	</s:iterator>
 	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
