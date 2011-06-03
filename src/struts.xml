@@ -86,9 +86,8 @@
 
 		<action name="do_buyUnits" class="com.umbrella.worldconq.actions.BuyUnitsAction"
 			method="execute">
-			<result name="success">/actionSuccess.xml</result>
-			<result name="error">/actionError.jsp</result>
-			<result name="input">/actionInput.xml</result>
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/buyUnits.jsp</result>
 		</action>
 		
 		<action name="moveUnits-*" class="com.umbrella.worldconq.actions.MoveUnitsAction"
@@ -99,9 +98,8 @@
 
 		<action name="do_moveUnits" class="com.umbrella.worldconq.actions.MoveUnitsAction"
 			method="execute">
-			<result name="success">/actionSuccess.xml</result>
-			<result name="error">/actionError.jsp</result>
-			<result name="input">/actionInput.xml</result>
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/moveUnits.jsp</result>
 		</action>
 
 		<action name="do_deploySpy-*" class="com.umbrella.worldconq.actions.DeploySpyAction" method="execute">
@@ -119,9 +117,8 @@
 
 		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction"
 			method="execute">
-			<result name="success">/actionSuccess.xml</result>
-			<result name="error">/actionError.jsp</result>
-			<result name="input">/actionInput.xml</result>
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/attack.jsp</result>
 		</action>
 
 		<action name="underAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
@@ -131,16 +128,14 @@
 
 		<action name="do_acceptAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
 			method="executeAttack">
-			<result name="success">/actionSuccess.xml</result>
-			<result name="error">/actionError.jsp</result>
-			<result name="input">/actionInput.xml</result>
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/underAttack.jsp</result>
 		</action>
 
 		<action name="do_requestNegotiation" class="com.umbrella.worldconq.actions.UnderAttackAction"
 			method="executeNegotiation">
-			<result name="success">/actionSuccess.xml</result>
-			<result name="error">/actionError.jsp</result>
-			<result name="input">/actionInput.xml</result>
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/underAttack.jsp</result>
 		</action>
 
 		<action name="do_resolve*"
