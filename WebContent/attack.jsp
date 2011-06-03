@@ -164,6 +164,7 @@ function del(field){
 function changeTerritory(){
 	index = document.getElementById('territory_attack').selectedIndex;
 	document.getElementsByName('target').value = document.getElementById('territory_attack').options[index].value;
+	alert(document.getElementsByName('target').value);
 }
 </script>
 

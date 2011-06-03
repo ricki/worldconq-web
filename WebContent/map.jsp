@@ -265,20 +265,21 @@
 		}
 		
 		function checkEvents(){
-			var e = xml.getElementsByTagName('events');
+			var e = xml.getElementsByTagName('event');
 			
 			for(var i= 0; i<e.length; i++){
+				alert(e[i].getElementsByTagName('type')[0].firstChild.nodeValue);
 				switch(e[i].getElementsByTagName('type')[0].firstChild.nodeValue){
-					case 0:
+					case '0':
 						//evento de mensaje de texto
 						texto = document.getElementById('infoArea').innerHTML;
 						texto = texto+"\n"+e[i].getElementsByTagName('message')[0].firstChild.nodeValue;
 						document.getElementById('infoArea').innerHTML = texto;
 						break;
-					case 1:
-						GB_show('Estas siendo atacado!!!', '../underAttack.jsp');
+					case '1':
+						GB_show('Estas siendo atacado!!!', '/worldconq-web/underAttack.action');
 						break;
-					case 2:
+					case '2':
 						soldiers = e[i].getElementsByTagName('soldiers')[0].firstChild.nodeValue;
 						money = e[i].getElementsByTagName('money')[0].firstChild.nodeValue;
 						texto = "Negociación:\n ¿Deseas negociar?\n "+soldiers+" Soldados.\n"+money+" Gallifantes.";
