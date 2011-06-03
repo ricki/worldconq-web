@@ -9,6 +9,7 @@ import com.umbrella.worldconq.exceptions.OutOfTurnException;
 import com.umbrella.worldconq.exceptions.PendingAttackException;
 import com.umbrella.worldconq.exceptions.UnocupiedTerritoryException;
 
+import domain.Player;
 import exceptions.GameNotFoundException;
 import exceptions.InvalidSessionException;
 import exceptions.InvalidTerritoryException;
@@ -44,7 +45,13 @@ public class MoveUnitsAction extends WorldConqAction {
 		setAvailableMissiles(t.getNumMissiles());
 		setAvailableAntimissiles(t.getNumAntiMissiles());
 		setAvailableIcbm(t.getNumICBMs());
-		// TODO avaibleTargets
+		ArrayList<Integer> adj = new ArrayList<Integer>();
+		Player self = getApp().getGameManager().getGameEngine().getPlayerListModel().getSelfPlayer();
+		for (TerritoryDecorator td : t.getAdjacentTerritories()) {
+			Player target = td.getPlayer();
+			if (target != null && target.equals(self))
+				adj.add(new Integer(td.getId()));
+		}
 		return SUCCESS;
 	}
 
