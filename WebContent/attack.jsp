@@ -112,7 +112,7 @@ for (i = 0; i < Variables.length; i++) {
 
 <script type="text/javascript">
 
-territorio = <s:property value="index" />;
+var territorio = <s:property value="index" />;
 
 cargarAdyacentes();
 
@@ -128,12 +128,8 @@ function cargarAdyacentes(){
 	territorios_adyacentes = adyacentes[territorio];
 	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
-	for(var id in territorios_adyacentes){
-		for (var n in array){
-			if(territorios_adyacentes[id] == array[n]){
-				option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
-			}
-		}
+	for(var id in array){
+		option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
 	}
 	
 	document.getElementById('territory_attack').innerHTML = option;
