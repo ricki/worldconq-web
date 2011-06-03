@@ -13,9 +13,8 @@
 </s:if>
 </head>
 
-<body>
-
-	<table>
+<body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
+	<table align="center" style="padding-top: 30px">
 
 		<tr>
 			<s:include value="header.jsp" />

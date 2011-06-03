@@ -36,35 +36,35 @@ public class BuyUnitsAction extends WorldConqAction {
 				getSoldiers(), getCannons(), getMissiles(), getIcbm(),
 				getAntimissiles());
 		} catch (RemoteException e) {
-			this.setExceptionMessage("Error con el servidor remoto.");
+			this.addActionError("Error con el servidor remoto.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.setExceptionMessage("Error sesión inválida.");
+			this.addActionError("Error sesión inválida.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			this.addActionError("No se ha podido localizar la partida seleccionada.");
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
-			this.setExceptionMessage("El usuario debe de estar en la partida ");
+			this.addActionError("El usuario debe de estar en la partida ");
 			return ERROR;
 		} catch (InvalidTerritoryException e) {
-			this.setExceptionMessage("El territorio seleccionado no es válido");
+			this.addActionError("El territorio seleccionado no es válido");
 			return ERROR;
 		} catch (UnocupiedTerritoryException e) {
-			this.setExceptionMessage("El territorio seleccionado no está ocupado");
+			this.addActionError("El territorio seleccionado no está ocupado");
 			return ERROR;
 		} catch (OutOfTurnException e) {
-			this.setExceptionMessage("Accion realizada fuera de turno.");
+			this.addActionError("Accion realizada fuera de turno.");
 			return ERROR;
 		} catch (NotEnoughMoneyException e) {
-			this.setExceptionMessage("No tienes dinero suficiente para la acción seleccionada");
+			this.addActionError("No tienes dinero suficiente para la acción seleccionada");
 			return ERROR;
 		} catch (PendingAttackException e) {
-			this.setExceptionMessage("Hay otro ataque en curso");
+			this.addActionError("Hay otro ataque en curso");
 			return ERROR;
 		}
 		return SUCCESS;
