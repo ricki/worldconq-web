@@ -112,6 +112,8 @@ for (i = 0; i < Variables.length; i++) {
 
 <script type="text/javascript">
 
+territorio = <s:property value="index" />;
+
 cargarAdyacentes();
 
 function cargarAdyacentes(){

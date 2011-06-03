@@ -529,16 +529,16 @@
 					<input onclick="buyTerritory(territorio_seleccionado)" type="image" disabled src="./image/botoncomprar_disabled.png" id="boton_comprar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Atacar', '/attack-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Atacar', '/worldconq-web/attack-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonatacar_disabled.png" id="boton_atacar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
 					<input onclick="sendSpy(territorio_seleccionado)" type="image" disabled src="./image/botonespiar_disabled.png" id="boton_espiar" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Mover tropas', '/moveUnits-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonmover_disabled.png" id="boton_mover" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Mover tropas', '/worldconq-web/moveUnits-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonmover_disabled.png" id="boton_mover" style="width: 95px; height: 35px;">
 				</td>
 				<td>
-					<input onclick="return GB_show('Comprar Tropas', '/buyUnits-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonrefuerzos_disabled.png" id="boton_refuerzos" style="width: 95px; height: 35px;">
+					<input onclick="return GB_show('Comprar Tropas', '/worldconq-web/buyUnits-'+territorio_seleccionado+'.action');" type="image" disabled src="./image/botonrefuerzos_disabled.png" id="boton_refuerzos" style="width: 95px; height: 35px;">
 				</td>
 			</tr>
 		</table>
