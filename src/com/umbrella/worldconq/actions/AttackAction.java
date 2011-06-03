@@ -33,8 +33,6 @@ public class AttackAction extends WorldConqAction {
 	private int availableICBM;
 	private ArrayList<Integer> availableTargets;
 
-	private String exceptionMessage;
-
 	public String show() {
 		if (!checkLogged() || !checkPlaying()) {
 			addActionError("Partida no en juego.");
@@ -58,6 +56,7 @@ public class AttackAction extends WorldConqAction {
 			if (target != null && !target.equals(self))
 				adj.add(new Integer(t.getId()));
 		}
+		this.setAvailableTargets(adj);
 		return SUCCESS;
 	}
 
@@ -70,35 +69,35 @@ public class AttackAction extends WorldConqAction {
 				getIndex(), getTarget(), getSoldiers(), getCannons(),
 				getMissiles(), getIcbm());
 		} catch (RemoteException e) {
-			this.setExceptionMessage("Error con el servidor remoto.");
+			this.addActionError("Error con el servidor remoto.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.setExceptionMessage("Error sesión inválida.");
+			this.addActionError("Error sesión inválida.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			this.addActionError("No se ha podido localizar la partida seleccionada.");
 			return ERROR;
 		} catch (InvalidTerritoryException e) {
-			this.setExceptionMessage("El territorio seleccionado no es válido");
+			this.addActionError("El territorio seleccionado no es válido");
 			return ERROR;
 		} catch (UnocupiedTerritoryException e) {
-			this.setExceptionMessage("El territorio seleccionado no está ocupado");
+			this.addActionError("El territorio seleccionado no está ocupado");
 			return ERROR;
 		} catch (OutOfTurnException e) {
-			this.setExceptionMessage("Accion realizada fuera de turno.");
+			this.addActionError("Accion realizada fuera de turno.");
 			return ERROR;
 		} catch (PendingAttackException e) {
-			this.setExceptionMessage("Hay otro ataque en curso");
+			this.addActionError("Hay otro ataque en curso");
 			return ERROR;
 		} catch (InvalidTimeException e) {
-			this.setExceptionMessage("Tiempo no válido.");
+			this.addActionError("Tiempo no válido.");
 			return ERROR;
 		} catch (NotEnoughUnitsException e) {
-			this.setExceptionMessage("No tienes unidades suficientes.");
+			this.addActionError("No tienes unidades suficientes.");
 			return ERROR;
 		}
 		return SUCCESS;
@@ -190,14 +189,6 @@ public class AttackAction extends WorldConqAction {
 
 	public ArrayList<Integer> getAvailableTargets() {
 		return availableTargets;
-	}
-
-	public void setExceptionMessage(String exceptionMessage) {
-		this.exceptionMessage = exceptionMessage;
-	}
-
-	public String getExceptionMessage() {
-		return exceptionMessage;
 	}
 
 }

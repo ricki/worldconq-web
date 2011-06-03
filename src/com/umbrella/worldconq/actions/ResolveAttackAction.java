@@ -23,20 +23,20 @@ public class ResolveAttackAction extends WorldConqAction {
 				getApp().getGameManager().getGameEngine().resolveNegotiation();
 			}
 		} catch (RemoteException e) {
-			this.setExceptionMessage("Error con el servidor remoto.");
+			this.addActionError("Error con el servidor remoto.");
 			session.remove("app");
 			session.remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.setExceptionMessage("Error sesión inválida.");
+			this.addActionError("Error sesión inválida.");
 			session.remove("app");
 			session.remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			this.addActionError("No se ha podido localizar la partida seleccionada.");
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
-			this.setExceptionMessage("No estás unido a la partida seleccionada.");
+			this.addActionError("No estás unido a la partida seleccionada.");
 			return ERROR;
 		}
 		return SUCCESS;

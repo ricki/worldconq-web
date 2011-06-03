@@ -9,6 +9,7 @@ import com.umbrella.worldconq.exceptions.OutOfTurnException;
 import com.umbrella.worldconq.exceptions.PendingAttackException;
 import com.umbrella.worldconq.exceptions.UnocupiedTerritoryException;
 
+import domain.Player;
 import exceptions.GameNotFoundException;
 import exceptions.InvalidSessionException;
 import exceptions.InvalidTerritoryException;
@@ -44,7 +45,14 @@ public class MoveUnitsAction extends WorldConqAction {
 		setAvailableMissiles(t.getNumMissiles());
 		setAvailableAntimissiles(t.getNumAntiMissiles());
 		setAvailableIcbm(t.getNumICBMs());
-		// TODO avaibleTargets
+		ArrayList<Integer> adj = new ArrayList<Integer>();
+		Player self = getApp().getGameManager().getGameEngine().getPlayerListModel().getSelfPlayer();
+		for (TerritoryDecorator td : t.getAdjacentTerritories()) {
+			Player target = td.getPlayer();
+			if (target != null && target.equals(self))
+				adj.add(new Integer(td.getId()));
+		}
+		this.setAvailableTargets(adj);
 		return SUCCESS;
 	}
 
@@ -58,35 +66,35 @@ public class MoveUnitsAction extends WorldConqAction {
 				getTarget(), getSoldiers(), getCannons(), getMissiles(),
 				getIcbm(), getAntimissiles());
 		} catch (RemoteException e) {
-			this.setExceptionMessage("Error con el servidor remoto.");
+			this.addActionError("Error con el servidor remoto.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.setExceptionMessage("Error sesión inválida.");
+			this.addActionError("Error sesión inválida.");
 			getSession().remove("app");
 			getSession().remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.setExceptionMessage("No se ha podido localizar la partida seleccionada.");
+			this.addActionError("No se ha podido localizar la partida seleccionada.");
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
-			this.setExceptionMessage("El usuario debe de estar en la partida ");
+			this.addActionError("El usuario debe de estar en la partida ");
 			return ERROR;
 		} catch (OutOfTurnException e) {
-			this.setExceptionMessage("Accion realizada fuera de turno.");
+			this.addActionError("Accion realizada fuera de turno.");
 			return ERROR;
 		} catch (UnocupiedTerritoryException e) {
-			this.setExceptionMessage("El territorio no está ocupado");
+			this.addActionError("El territorio no está ocupado");
 			return ERROR;
 		} catch (InvalidTerritoryException e) {
-			this.setExceptionMessage("El territorio es inválido");
+			this.addActionError("El territorio es inválido");
 			return ERROR;
 		} catch (NotEnoughUnitsException e) {
-			this.setExceptionMessage("No hay suficientes unidades");
+			this.addActionError("No hay suficientes unidades");
 			return ERROR;
 		} catch (PendingAttackException e) {
-			this.setExceptionMessage("Hay otro ataque en curso");
+			this.addActionError("Hay otro ataque en curso");
 			return ERROR;
 		}
 		return SUCCESS;
