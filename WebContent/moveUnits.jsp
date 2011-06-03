@@ -148,7 +148,7 @@ for (i = 0; i < Variables.length; i++) {
 	</s:form>
 
 <script type="text/javascript">
-territorio = <s:property value="index" />;
+var territorio = <s:property value="index" />;
 
 cargarAdyacentes();
 
@@ -162,12 +162,8 @@ function cargarAdyacentes(){
 		array.add( <s:property/>);
 	</s:iterator>
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
-	for(var id in territorios_adyacentes){
-		for (var n in array){
-			if(territorios_adyacentes[id] == array[n]){
-				option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";		
-			}
-		}
+	for(var id in array){
+		option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
 	}
 	
 	document.getElementById('territory_move').innerHTML = option;
@@ -212,8 +208,8 @@ function del(field){
 }
 
 function changeTerritory(){
-	index = document.getElementById('territory_attack').selectedIndex;
-	document.getElementsByName('target').value = document.getElementById('territory_attack').options[index].value;
+	index = document.getElementById('territory_move').selectedIndex;
+	document.getElementsByName('target').value = document.getElementById('territory_move').options[index].value;
 }
 </script>
 </body>
