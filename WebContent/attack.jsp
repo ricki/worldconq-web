@@ -26,8 +26,12 @@ for (i = 0; i < Variables.length; i++) {
 	<table align="center" style="padding-top: 30px">
 		<tr style="text-align: center;">
 			<td>
-				<select id="territory_attack"></select>
+				<select id="territory_attack" onchange="document.getElementsByName('target').value = document.getElementById('territory_attack').selectedIndex;"></select>
 			</td>
+		</tr>
+		<tr>
+			<s:actionmessage />
+			<s:actionerror />
 		</tr>
 		<tr>
 			<td>
@@ -59,10 +63,10 @@ for (i = 0; i < Variables.length; i++) {
 							<s:textfield name="cannons" id="cannons" value="0" theme="simple"/>
 						</td>
 						<td>
-							<input type="button" value="-" onclick="del('cannons1')">
+							<input type="button" value="-" onclick="del('cannons')">
 						</td>
 						<td>
-							<input type="button" value="+" onclick="add('cannons1')">
+							<input type="button" value="+" onclick="add('cannons')">
 						</td>
 					</tr>
 					<tr>
@@ -102,6 +106,8 @@ for (i = 0; i < Variables.length; i++) {
 			</td>
 		</tr>
 	</table>
+	<s:hidden name="index" value="%{index}" />
+	<s:hidden name="target" value="" />
 	</s:form>
 
 <script type="text/javascript">
@@ -113,7 +119,7 @@ function cargarAdyacentes(){
 	
 	territorios_adyacentes = adyacentes[territorio];
 	
-	option = "";
+	option = "<option value ='--def--''>Seleccione un territorio</option>";
 	for(var id in territorios_adyacentes){
 		option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
 	}
@@ -134,6 +140,7 @@ function del(field){
 		document.getElementById(field).value = --ini;
 	}
 }
+
 
 </script>
 
