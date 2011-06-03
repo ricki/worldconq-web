@@ -26,7 +26,7 @@ for (i = 0; i < Variables.length; i++) {
 	<table align="center" style="padding-top: 30px">
 		<tr style="text-align: center;">
 			<td>
-				<select id="territory_attack" onchange="document.getElementsByName('target').value = document.getElementById('territory_attack').selectedIndex;"></select>
+				<select id="territory_attack" onchange="changeTerritory()"></select>
 			</td>
 		</tr>
 		<tr>
@@ -115,13 +115,23 @@ for (i = 0; i < Variables.length; i++) {
 cargarAdyacentes();
 
 function cargarAdyacentes(){
+	
+	array = new Array();
+	<s:iterator value="availableTargets" status="itStatus">
+		array.add( <s:property/>);
+	</s:iterator>
+	
 	//territorio = 1, esta variable se coge de la función que se ejecuta al principio;
 	
 	territorios_adyacentes = adyacentes[territorio];
 	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
 	for(var id in territorios_adyacentes){
-		option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
+		for (var n in array){
+			if(territorios_adyacentes[id] == array[n]){
+				option = option + "<option value ="+territorios_adyacentes[id]+">"+datos_paises[territorios_adyacentes[id]][1]+"</option>";
+			}
+		}
 	}
 	
 	document.getElementById('territory_attack').innerHTML = option;
@@ -130,8 +140,22 @@ function cargarAdyacentes(){
 }
 
 function add(field){
+	availableSoldiers = <s:property value="availableSoldiers" />;
+	availableCannons = <s:property value="availableCannons" />;
+	availableMissiles = <s:property value="availableMissiles" />;
+	availableIcbm = <s:property value="availableICBM" />;
+	
 	ini = document.getElementById(field).value;
-	document.getElementById(field).value = ++ini;
+	parametro="";
+	if(field == "soldiers") parametro = availableSoldiers;
+	if(field == "cannons") parametro = availableCannons;
+	if(field == "missiles") parametro = availableMissiles;
+	if(field == "icbm") parametro = availableIcbm;
+	
+	if(ini < parametro){
+		document.getElementById(field).value = ++ini;
+	}
+	
 }
 
 function del(field){
@@ -141,7 +165,10 @@ function del(field){
 	}
 }
 
-
+function changeTerritory(){
+	index = document.getElementById('territory_attack').selectedIndex;
+	document.getElementsByName('target').value = document.getElementById('territory_attack').options[index].value;
+}
 </script>
 
 </body>
