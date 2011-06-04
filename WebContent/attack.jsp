@@ -95,12 +95,13 @@
 		</tr>
 		<tr>
 			<td colspan="4" style="text-align: center;">
+				<s:hidden name="index" value="%{index}" />
+				<input type="hidden" name="target" id="target"/>
 				<s:submit value="Atacar" theme="simple"/>
 			</td>
 		</tr>
 	</table>
-	<s:hidden name="index" value="%{index}" />
-	<s:hidden name="target" value="" />
+	
 	</s:form>
 
 <script type="text/javascript">
@@ -113,7 +114,6 @@ function cargarAdyacentes(){
 	
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		alert(<s:property/> + " is at " + array.length);
 		array[array.length] = <s:property/>;
 	</s:iterator>
 	
@@ -155,8 +155,8 @@ function del(field){
 
 function changeTerritory(){
 	index = document.getElementById('territory_attack').selectedIndex;
-	document.getElementsByName('target').value = document.getElementById('territory_attack').options[index].value;
-	alert(document.getElementsByName('target').value);
+	document.getElementById('target').value = document.getElementById('territory_attack').options[index].value;
+	alert(document.getElementById('target').value);
 }
 </script>
 
