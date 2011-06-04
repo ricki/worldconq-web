@@ -11,13 +11,6 @@
 <script type="text/javascript">
 //script para recoger en variables de javascript lo que hayamos pasado por get en la url.
 
-var Url = location.href;
-Url = Url.replace(/.*\?(.*?)/,"$1");
-Variables = Url.split ("&");
-for (i = 0; i < Variables.length; i++) {
-       Separ = Variables[i].split("=");
-       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
-}
 </script>
 </head>
 <body bgcolor="#000000" background="image/mapafondo.jpg" style="background-attachment: fixed; background-position: top center; background-repeat: no-repeat;">
@@ -144,7 +137,7 @@ for (i = 0; i < Variables.length; i++) {
 		</tr>
 	</table>
 	<s:hidden name="index" value="%{index}" />
-	<s:hidden name="target" value="" />
+	<s:hidden name="target" />
 	</s:form>
 
 <script type="text/javascript">
@@ -156,7 +149,7 @@ function cargarAdyacentes(){
 
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		array.add( <s:property/>);
+		array[array.length] = <s:property/>;
 	</s:iterator>
 	
 	option = "<option value ='--def--''>Seleccione un territorio</option>";
@@ -173,11 +166,12 @@ function add(field){
 	
 	availableSoldiers = <s:property value="availableSoldiers" />;
 	availableMissiles = <s:property value="availableMissiles" />;
-	availableIcbm = <s:property value="availableICBM" />;
+	availableIcbm = <s:property value="availableIcbm" />;
 	availableAntimissiles = <s:property value="availableAntimissiles" />;
 	
+	arraycannons =  new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		arraycannons.add( <s:property/>);
+		arraycannons[arraycannons.length] = <s:property/>;
 	</s:iterator>
 	
 	ini = document.getElementById(field).value;

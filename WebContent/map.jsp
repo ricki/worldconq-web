@@ -16,6 +16,7 @@
 <script type="text/javascript" src="greybox/AJS_fx.js"></script>
 <script type="text/javascript" src="greybox/gb_scripts.js"></script>
 <script type="text/javascript" src="info_territories.js"></script>
+<script type="text/javascript" src="errors.js"></script>
 <link href="greybox/gb_styles.css" rel="stylesheet" type="text/css" media="all" />
     
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -148,6 +149,7 @@
 				seleccionado = 0;
 				document.getElementById(datos_paises[territorio_seleccionado][0]).setAttribute('class','territorio');
 				inicializarInfoTerritorio();
+				territorio_seleccionado = "";
 				
 				//deshabilitamos todos los botones
 				document.getElementById('boton_comprar').disabled = true;
@@ -200,7 +202,7 @@
 			
 			texto="<table class='tablauno'>";
 			texto = texto + "<tr><td class='campo' style='width:50%'>Usuario:</td><td class='campo_texto' style='width:50%'>"+self_user+"</td></tr>";
-			texto = texto + "<tr><td class='campo'>Galligantes:</td><td class='campo_texto'>"+self_money+"</td></tr>";
+			texto = texto + "<tr><td class='campo'>Gallifantes:</td><td class='campo_texto'>"+self_money+"</td></tr>";
 			texto = texto + "</table>";
 		
 			document.getElementById('infouno').innerHTML = texto;
@@ -268,7 +270,7 @@
 			var e = xml.getElementsByTagName('event');
 			
 			for(var i= 0; i<e.length; i++){
-				alert(e[i].getElementsByTagName('type')[0].firstChild.nodeValue);
+				//alert(e[i].getElementsByTagName('type')[0].firstChild.nodeValue);
 				switch(e[i].getElementsByTagName('type')[0].firstChild.nodeValue){
 					case '0':
 						//evento de mensaje de texto
@@ -487,7 +489,8 @@
 		}
 		
 		function sendSpy(territorio){
-			if(territorio != ""){
+			//alert(self_money);
+			if(territorio != "" || territorio == 0){
 				if(array_territorios[territorio][3] == "?" || array_territorios[territorio][3] == ""){
 					spyTerritoryAjax();
 				}else{
@@ -500,6 +503,7 @@
 		
 		//función a la que se le pasa una respuesta en xml y devuelve un alert.
 		function comprobarRespuestas(respuesta){
+			
 			var r = respuesta.getElementsByTagName('status')[0].firstChild.nodeValue;
 			//alert(r);
 			if(r == "Success"){
@@ -507,12 +511,11 @@
 			}else if (r == "Input"){
 				alert("Los datos introducidos no son correctos");
 			}else{
-				
-				if(respuesta.getElementsByTagName('message')[0].firstChild == null){
+				if(respuesta.getElementsByTagName('code')[0] == undefined){
 					alert("Se ha producido un error, la operación ha sido cancelada");
 				}else{
-					var m = respuesta.getElementsByTagName('message')[0].firstChild.nodeValue;
-					alert("Se ha producido un error:\n"+m);	
+					var m = respuesta.getElementsByTagName('code')[0].firstChild.nodeValue;
+					alert("Se ha producido un error:\n"+array_errors[m]);	
 				}
 			}
 			
@@ -649,9 +652,7 @@
 				</tr>		
 				<tr>
 					<td align="top" width="800" height="100">			  	
-                    <div class="infoArea" title="Información sobre los eventos" id="infoArea">
 						<textarea name="infoArea" id="infoArea" readOnly cols="85" rows="2" tabindex="3" style="font-family: Verdana; font-size: 11pt; color: #191919; font-weight: bold; border: 1px solid #422100; padding: 0; background-color:#9E7D45"></textarea>
-					</div>
                     </td>
 				</tr>		
 			</table>

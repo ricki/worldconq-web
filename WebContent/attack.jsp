@@ -95,12 +95,13 @@
 		</tr>
 		<tr>
 			<td colspan="4" style="text-align: center;">
+				<s:hidden name="index" value="%{index}" />
+				<s:hidden name="target" value="" />
 				<s:submit value="Atacar" theme="simple"/>
 			</td>
 		</tr>
 	</table>
-	<s:hidden name="index" value="%{index}" />
-	<s:hidden name="target" value="" />
+	
 	</s:form>
 
 <script type="text/javascript">
@@ -113,7 +114,6 @@ function cargarAdyacentes(){
 	
 	array = new Array();
 	<s:iterator value="availableTargets" status="itStatus">
-		alert(<s:property/> + " is at " + array.length);
 		array[array.length] = <s:property/>;
 	</s:iterator>
 	
