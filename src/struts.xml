@@ -6,7 +6,6 @@
 <struts>
 
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.action.extension" value="" />
 
 	<package name="worldconq-web" namespace="/" extends="struts-default">
 
@@ -16,8 +15,135 @@
 			<result>/index.jsp</result>
 		</action>
 
-		<action name="login" class="com.umbrella.worldconq.actions.LoginAction" method="execute">
+		<action name="login" class="com.umbrella.worldconq.actions.LoginAction"
+			method="execute">
 			<result name="*">/index.jsp</result>
+		</action>
+
+		<action name="createGame">
+			<result>/createGame.jsp</result>
+		</action>
+
+		<action name="do_createGame" class="com.umbrella.worldconq.actions.CreateGameAction"
+			method="execute">
+			<result name="success">/listGames.jsp</result>
+			<result name="error">/createGame.jsp</result>
+		</action>
+
+		<action name="logout" class="com.umbrella.worldconq.actions.LogoutAction"
+			method="execute">
+			<result name="*">/index.jsp</result>
+		</action>
+
+		<action name="register">
+			<result>/register.jsp</result>
+		</action>
+
+		<action name="do_register" class="com.umbrella.worldconq.actions.RegisterAction"
+			method="execute">
+			<result name="success">/index.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+
+		<action name="listGames" class="com.umbrella.worldconq.actions.ListGamesAction"
+			method="execute">
+			<result name="*">/listGames.jsp</result>
+		</action>
+
+		<action name="playGame-*" class="com.umbrella.worldconq.actions.PlayGameAction"
+			method="execute">
+			<param name="id">{1}</param>
+			<result name="success">/map.jsp</result>
+			<result name="*">/listGames.jsp</result>
+		</action>
+
+		<action name="joinGame-*" class="com.umbrella.worldconq.actions.JoinGameAction"
+			method="execute">
+			<param name="id">{1}</param>
+			<result name="success">/joinGame.jsp</result>
+			<result name="*">/index.jsp</result>
+		</action>
+
+		<action name="refreshGame" class="com.umbrella.worldconq.actions.RefreshGameAction"
+			method="execute">
+			<result name="success">/refresh.jsp</result>
+			<result name="*">/actionError.jsp</result>
+		</action>
+
+		<action name="do_buyTerritory-*"
+			class="com.umbrella.worldconq.actions.BuyTerritoryAction" method="execute">
+			<param name="index">{1}</param>
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
+
+		<action name="buyUnits-*" class="com.umbrella.worldconq.actions.BuyUnitsAction"
+			method="show">
+			<param name="index">{1}</param>
+			<result name="*">/buyUnits.jsp</result>
+		</action>
+
+		<action name="do_buyUnits" class="com.umbrella.worldconq.actions.BuyUnitsAction"
+			method="execute">
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/buyUnits.jsp</result>
+		</action>
+		
+		<action name="moveUnits-*" class="com.umbrella.worldconq.actions.MoveUnitsAction"
+			method="show">
+			<param name="index">{1}</param>
+			<result name="*">/moveUnits.jsp</result>
+		</action>
+
+		<action name="do_moveUnits" class="com.umbrella.worldconq.actions.MoveUnitsAction"
+			method="execute">
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/moveUnits.jsp</result>
+		</action>
+
+		<action name="do_deploySpy-*" class="com.umbrella.worldconq.actions.DeploySpyAction" method="execute">
+			<param name="index">{1}</param>
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
+		</action>
+
+		<action name="attack-*" class="com.umbrella.worldconq.actions.AttackAction"
+			method="show">
+			<param name="index">{1}</param>
+			<result name="*">/attack.jsp</result>
+		</action>
+
+		<action name="do_attack" class="com.umbrella.worldconq.actions.AttackAction"
+			method="execute">
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/attack.jsp</result>
+		</action>
+
+		<action name="underAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="show">
+			<result name="*">/underAttack.jsp</result>
+		</action>
+
+		<action name="do_acceptAttack" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="executeAttack">
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/underAttack.jsp</result>
+		</action>
+
+		<action name="do_requestNegotiation" class="com.umbrella.worldconq.actions.UnderAttackAction"
+			method="executeNegotiation">
+			<result name="success">/actionSuccess.jsp</result>
+			<result name="*">/underAttack.jsp</result>
+		</action>
+
+		<action name="do_resolve*"
+			class="com.umbrella.worldconq.actions.ResolveAttackAction" method="execute">
+			<param name="option">{1}</param>
+			<result name="success">/actionSuccess.xml</result>
+			<result name="error">/actionError.jsp</result>
+			<result name="input">/actionInput.xml</result>
 		</action>
 
 	</package>

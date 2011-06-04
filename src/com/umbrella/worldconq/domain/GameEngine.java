@@ -75,6 +75,7 @@ public class GameEngine implements ClientCallback {
 
 	}
 
+	@Override
 	public UUID getId() {
 		return mGame.getGameInfo().getId();
 	}
@@ -98,6 +99,10 @@ public class GameEngine implements ClientCallback {
 
 	public Game getGame() {
 		return mGame;
+	}
+
+	public Attack getCurrentAttack() {
+		return mCurrentAttack;
 	}
 
 	public void setMapListModel(MapModel mMapListModel) {

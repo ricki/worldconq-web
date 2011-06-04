@@ -1,0 +1,505 @@
+#mapa {
+width: 800px;
+height: 480px;
+background-position:0px 83px;
+background-image: url(../image/mapa.png) ;
+background-repeat: no-repeat;
+}
+#menu {
+width: 750px;
+height: 50px;
+top: 160px;
+left: 5%;
+position: absolute;
+}
+.campo{
+	color: #422100;
+	font:Verdana, Geneva, sans-serif
+	font-size:9pt;
+	font-weight:bold;
+	text-align:center;
+}
+
+.campo_texto{
+	font:Verdana, Geneva, sans-serif
+	font-size:9pt;
+	text-align:center;
+}
+.tablados{
+	text-align:center;
+}
+.tablados th {
+	color: #422100;
+}
+.tablauno{
+	text-align:center;
+}
+
+.tablauno th tr:nth-child(odd){
+	color: #422100;
+	font:Verdana, Geneva, sans-serif
+	font-size:9pt;
+	font-weight:bold;
+	text-align:center;
+}
+
+.territorio{
+cursor : url(../image/personalizado.cur),auto;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+
+}
+.territorio_seleccionado{
+	cursor : url(../image/personalizado.cur),auto;
+	background-image: url(../image/seleccionado.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+
+}
+
+.territorio_propio{
+	cursor : url(../image/personalizado.cur),auto;
+	background-image: url(../image/mipuntero.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+.territorio_enemigo{
+	cursor : url(../image/personalizado.cur),auto;
+	background-image: url(../image/punteroenemigo.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+#brasil{
+width: 20px;
+height: 20px;
+position: relative;
+top: 350px;
+left: -175px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#argentina{
+width: 20px;
+height: 20px;
+position: relative;
+top: 400px;
+left: -205px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#venezuela{
+width: 20px;
+height: 20px;
+position: relative;
+top: 250px;
+left: -225px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#peru{
+width: 20px;
+height: 20px;
+position: relative;
+top: 300px;
+left: -215px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+/*Africa*/
+#congo{
+width: 20px;
+height: 20px;
+position: relative;
+top: 235px;
+left: 25px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#africa_oriental{
+width: 20px;
+height: 20px;
+position: relative;
+top: 180px;
+left: 45px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#sudafrica{
+width: 20px;
+height: 20px;
+position: relative;
+top: 260px;
+left: 25px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#africa_norte{
+width: 20px;
+height: 20px;
+position: relative;
+top: 110px;
+left: -35px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#egipto{
+width: 20px;
+height: 20px;
+position: relative;
+top: 75px;
+left: 25px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#madagascar{
+width: 20px;
+height: 20px;
+position: relative;
+top: 190px;
+left:90px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/*Oceania*/
+#australia_oriental{
+width: 20px;
+height: 20px;
+position: relative;
+top: 190px;
+left:350px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#indonesia{
+width: 20px;
+height: 20px;
+position: relative;
+top: 90px;
+left:270px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#nueva_guinea{
+width: 20px;
+height: 20px;
+position: relative;
+top: 90px;
+left:345px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#australia_occidental{
+width: 20px;
+height: 20px;
+position: relative;
+top: 130px;
+left:280px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/*Asia*/
+#afghanistan{
+width: 20px;
+height: 20px;
+position: relative;
+top: -100px;
+left: 120px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#china{
+width: 20px;
+height: 20px;
+position: relative;
+top: -90px;
+left:200px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#india{
+width: 20px;
+height: 20px;
+position: relative;
+top: -70px;
+left:170px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#irkutsk{
+width: 20px;
+height: 20px;
+position: relative;
+top: -185px;
+left:220px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#japon{
+width: 20px;
+height: 20px;
+position: relative;
+top: -160px;
+left:320px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#kamchatka{
+width: 20px;
+height: 20px;
+position: relative;
+top: -255px;
+left:320px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#oriente_medio{
+width: 20px;
+height: 20px;
+position: relative;
+top: -150px;
+left:90px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#mongolia{
+width: 20px;
+height: 20px;
+position: relative;
+top: -240px;
+left:230px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#siam{
+width: 20px;
+height: 20px;
+position: relative;
+top: -170px;
+left:240px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#siberia{
+width: 20px;
+height: 20px;
+position: relative;
+top: -330px;
+left:170px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#ural{
+width: 20px;
+height: 20px;
+position: relative;
+top: -350px;
+left:120px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#yakutsk{
+width: 20px;
+height: 20px;
+position: relative;
+top: -375px;
+left:230px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/*Europa*/
+#gran_bretana{
+width: 20px;
+height: 20px;
+position: relative;
+top: -370px;
+left:-40px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#iceland{
+width: 20px;
+height: 20px;
+position: relative;
+top: -415px;
+left:-65px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#europa_norte{
+width: 20px;
+height: 20px;
+position: relative;
+top: -395px;
+left:5px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#escandinavia{
+width: 20px;
+height: 20px;
+position: relative;
+top: -460px;
+left:10px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#europa_sur{
+width: 20px;
+height: 20px;
+position: relative;
+top: -410px;
+left:20px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#ucrania{
+width: 20px;
+height: 20px;
+position: relative;
+top: -470px;
+left:60px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#europa_occidental{
+width: 20px;
+height: 20px;
+position: relative;
+top: -445px;
+left:-45px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+/*America del norte*/
+#alaska{
+width: 20px;
+height: 20px;
+position: relative;
+top: -535px;
+left: -345px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#alberta{
+width: 20px;
+height: 20px;
+position: relative;
+top: -525px;
+left:-300px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#america_central{
+width: 20px;
+height: 20px;
+position: relative;
+top: -440px;
+left:-300px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#estados_unidos_este{
+width: 20px;
+height: 20px;
+position: relative;
+top: -520px;
+left:-250px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#groenlandia{
+width: 20px;
+height: 20px;
+position: relative;
+top: -640px;
+left:-105px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#territerios_noroeste{
+width: 20px;
+height: 20px;
+position: relative;
+top: -635px;
+left:-290px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#ontario{
+width: 20px;
+height: 20px;
+position: relative;
+top: -620px;
+left:-240px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#quebec{
+width: 20px;
+height: 20px;
+position: relative;
+top: -650px;
+left:-190px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
+#estados_unidos_oeste{
+width: 20px;
+height: 20px;
+position: relative;
+top: -630px;
+left:-320px;
+background-image: url(../image/punterovacio.png);
+background-repeat: no-repeat;
+background-position: center;
+}
