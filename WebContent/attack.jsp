@@ -96,7 +96,7 @@
 		<tr>
 			<td colspan="4" style="text-align: center;">
 				<s:hidden name="index" value="%{index}" />
-				<s:hidden name="target" value="" />
+				<input type="hidden" name="target" id="target"/>
 				<s:submit value="Atacar" theme="simple"/>
 			</td>
 		</tr>
@@ -155,8 +155,8 @@ function del(field){
 
 function changeTerritory(){
 	index = document.getElementById('territory_attack').selectedIndex;
-	document.getElementsByName('target').value = document.getElementById('territory_attack').options[index].value;
-	alert(document.getElementsByName('target').value);
+	document.getElementById('target').value = document.getElementById('territory_attack').options[index].value;
+	alert(document.getElementById('target').value);
 }
 </script>
 
