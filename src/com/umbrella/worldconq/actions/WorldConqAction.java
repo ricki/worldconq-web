@@ -14,6 +14,18 @@ public abstract class WorldConqAction extends ActionSupport implements
 
 	protected Map<String, Object> session;
 
+	private int errorCode;
+
+	public static final int RemoteErrorCode = 1;
+	public static final int InvalidSessionErrorCode = 2;
+	public static final int GameNotFoundErrorCode = 3;
+	public static final int NotCurrentPlayerGameErrorCode = 4;
+	public static final int OutOfTurnErrorCode = 5;
+	public static final int PendingAttackErrorCode = 6;
+	public static final int NotEnoughMoneyErrorCode = 7;
+	public static final int OcupiedTerritoryErrorCode = 8;
+	public static final int InvalidTerritoryErrorCode = 9;
+
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		session = arg0;
@@ -26,6 +38,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 	protected boolean checkLogged() {
 		if (getApp().getUserManager().getSession() == null) {
 			this.addActionError("El usuario debe estar logueado.");
+			setErrorCode(InvalidSessionErrorCode);
 			return false;
 		}
 		return true;
@@ -34,6 +47,7 @@ public abstract class WorldConqAction extends ActionSupport implements
 	protected boolean checkPlaying() {
 		if (getApp().getGameManager().getGameEngine() == null) {
 			this.addActionError("El usuario debe estar jugando.");
+			setErrorCode(GameNotFoundErrorCode);
 			return false;
 		}
 		return true;
@@ -55,6 +69,14 @@ public abstract class WorldConqAction extends ActionSupport implements
 			session.remove("user");
 		}
 		return app;
+	}
+
+	public void setErrorCode(int errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public int getErrorCode() {
+		return errorCode;
 	}
 
 }

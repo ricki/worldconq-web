@@ -25,35 +25,35 @@ public class BuyTerritoryAction extends WorldConqAction {
 		try {
 			getApp().getGameManager().getGameEngine().buyTerritory(getIndex());
 		} catch (RemoteException e) {
-			this.addActionError("Error con el servidor remoto.");
-			getSession().remove("app");
-			getSession().remove("user");
+			this.setErrorCode(RemoteErrorCode);
+			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.addActionError("Error sesión inválida.");
-			getSession().remove("app");
-			getSession().remove("user");
+			this.setErrorCode(InvalidSessionErrorCode);
+			session.remove("app");
+			session.remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.addActionError("No se ha podido localizar la partida seleccionada.");
+			this.setErrorCode(GameNotFoundErrorCode);
 			return ERROR;
-		} catch (final NotCurrentPlayerGameException e) {
-			this.addActionError("El usuario debe de estar en la partida ");
+		} catch (NotCurrentPlayerGameException e) {
+			this.setErrorCode(NotCurrentPlayerGameErrorCode);
 			return ERROR;
-		} catch (final OutOfTurnException e) {
-			this.addActionError("Accion realizada fuera de turno.");
+		} catch (OutOfTurnException e) {
+			this.setErrorCode(OutOfTurnErrorCode);
 			return ERROR;
-		} catch (final PendingAttackException e) {
-			this.addActionError("Hay otro ataque en curso");
+		} catch (NotEnoughMoneyException e) {
+			this.setErrorCode(NotEnoughMoneyErrorCode);
 			return ERROR;
-		} catch (final NotEnoughMoneyException e) {
-			this.addActionError("No tienes dinero suficiente para la acción seleccionada");
+		} catch (PendingAttackException e) {
+			this.setErrorCode(PendingAttackErrorCode);
 			return ERROR;
 		} catch (final OcupiedTerritoryException e) {
-			this.addActionError("El territorio seleccionado está ocupado");
+			this.setErrorCode(OcupiedTerritoryErrorCode);
 			return ERROR;
-		} catch (final InvalidTerritoryException e) {
-			this.addActionError("El territorio seleccionado no es válido");
+		} catch (InvalidTerritoryException e) {
+			this.setErrorCode(InvalidTerritoryErrorCode);
 			return ERROR;
 		}
 		return SUCCESS;

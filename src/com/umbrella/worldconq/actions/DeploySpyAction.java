@@ -23,32 +23,32 @@ public class DeploySpyAction extends WorldConqAction {
 		try {
 			getApp().getGameManager().getGameEngine().deploySpy(getIndex());
 		} catch (RemoteException e) {
-			this.addActionError("Error con el servidor remoto.");
+			this.setErrorCode(RemoteErrorCode);
 			session.remove("app");
 			session.remove("user");
 			return ERROR;
 		} catch (InvalidSessionException e) {
-			this.addActionError("Error sesión inválida.");
+			this.setErrorCode(InvalidSessionErrorCode);
 			session.remove("app");
 			session.remove("user");
 			return ERROR;
 		} catch (GameNotFoundException e) {
-			this.addActionError("No se ha podido localizar la partida seleccionada.");
+			this.setErrorCode(GameNotFoundErrorCode);
 			return ERROR;
 		} catch (NotCurrentPlayerGameException e) {
-			this.addActionError("El usuario debe de estar en la partida ");
+			this.setErrorCode(NotCurrentPlayerGameErrorCode);
 			return ERROR;
 		} catch (OutOfTurnException e) {
-			this.addActionError("Accion realizada fuera de turno.");
+			this.setErrorCode(OutOfTurnErrorCode);
 			return ERROR;
 		} catch (NotEnoughMoneyException e) {
-			this.addActionError("No tienes dinero suficiente para la acción seleccionada");
+			this.setErrorCode(NotEnoughMoneyErrorCode);
 			return ERROR;
 		} catch (PendingAttackException e) {
-			this.addActionError("Hay otro ataque en curso");
+			this.setErrorCode(PendingAttackErrorCode);
 			return ERROR;
 		} catch (InvalidTerritoryException e) {
-			this.addActionError("El territorio seleccionado no es válido");
+			this.setErrorCode(InvalidTerritoryErrorCode);
 			return ERROR;
 		}
 		return SUCCESS;

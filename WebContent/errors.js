@@ -1,6 +1,11 @@
 array_errors = new Array();
-array_errors[0] = "Operación realizada fuera de turno";
-array_errors[1] = "";
-array_errors[2] = "";
-array_errors[3] = "";
-array_errors[4] = "";
+array_errors[0] = "Error desconocido.";
+array_errors[1] = "Error con el servidor remoto.";
+array_errors[2] = "Error sesión inválida.";
+array_errors[3] = "No se ha podido localizar la partida seleccionada.";
+array_errors[4] = "El usuario debe de estar en la partida.";
+array_errors[5] = "Acción realizada fuera de turno.";
+array_errors[6] = "Hay otro ataque en curso.";
+array_errors[7] = "No tienes dinero suficiente para la acción seleccionada.";
+array_errors[8] = "El territorio seleccionado está ocupado.";
+array_errors[9] = "El territorio seleccionado no es válido.";
