@@ -61,6 +61,16 @@
 	<s:include value="header.jsp" />
 
 	<%-- nombre, descripcion, lista sesiones, turno, defensa time, negociacion time --%>
+	<table align="center" border="0" width="100" cellspacing="0" cellpadding="0" height="100">
+		<tr>
+			<td>
+			<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
 <div align=center>
 	<s:div id="content">
 
