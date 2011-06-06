@@ -20,6 +20,7 @@ public class MapModel extends AbstractTableModel {
 
 	private final ArrayList<TerritoryDecorator> data;
 	private final Player selfPlayer;
+	private final boolean visible[] = new boolean[42];
 
 	public MapModel(Player selfPlayer, PlayerListModel playerModel) {
 		super();
@@ -41,6 +42,7 @@ public class MapModel extends AbstractTableModel {
 			for (final TerritoryDecorator t : data) {
 				this.updateTerritory(t);
 			}
+			calculateVisible();
 		}
 	}
 
@@ -56,6 +58,27 @@ public class MapModel extends AbstractTableModel {
 			t.setNumICBMs(territory.getNumICBMs());
 			t.setNumAntiMissiles(territory.getNumAntiMissiles());
 			this.fireTableDataChanged();
+			calculateVisible();
+		}
+	}
+
+	private void calculateVisible() {
+		for (int i = 0; i < 42; i++)
+			visible[i] = false;//inicializo a false la matriz de visibilidad
+
+		for (TerritoryDecorator td : data) {
+			if (td != null) {
+				if (td.getPlayer() != null && td.getPlayer().equals(selfPlayer)) {
+					visible[td.getId()] = true;
+					for (TerritoryDecorator td2 : td.getAdjacentTerritories())
+						visible[td2.getId()] = true;
+				}
+
+				for (final Spy s : selfPlayer.getSpies())
+					if (s.getUses() < 2 && s.getLocation() == td.getId())
+						visible[td.getId()] = true;
+			}
+
 		}
 	}
 
@@ -82,55 +105,34 @@ public class MapModel extends AbstractTableModel {
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		if (columnIndex < 0 || columnIndex >= this.getColumnCount())
 			throw new IndexOutOfBoundsException("Index: " + columnIndex
-				+ ", Size" + this.getColumnCount());
+					+ ", Size" + this.getColumnCount());
+		TerritoryDecorator t = data.get(rowIndex);
 
-		boolean hasSpy = false;
-		final TerritoryDecorator t = data.get(rowIndex);
-
-		if (t.getPlayer() != null) {
-
-			for (final Spy s : selfPlayer.getSpies()) {
-				if (s.getUses() < 2 && s.getLocation() == rowIndex) {
-					hasSpy = true;
-				}
+		if (visible[rowIndex] && t != null && t.getPlayer() != null) {
+			switch (columnIndex) {
+			case 0:
+				return rowIndex;
+			case 1:
+				return t.getPlayer().getName();
+			case 2:
+				return t.getNumSoldiers();
+			case 3:
+				return t.getNumCannons()[0];
+			case 4:
+				return t.getNumCannons()[1];
+			case 5:
+				return t.getNumCannons()[2];
+			case 6:
+				return t.getNumMissiles();
+			case 7:
+				return t.getNumICBMs();
+			case 8:
+				return t.getNumAntiMissiles();
+			case 9:
+				return t.getPrice();
+			default:
+				return null;
 			}
-			if (t.getPlayer().equals(selfPlayer) || hasSpy) {
-
-				switch (columnIndex) {
-				case 0:
-					return rowIndex;
-				case 1:
-					return t.getPlayer().getName();
-				case 2:
-					return t.getNumSoldiers();
-				case 3:
-					return t.getNumCannons()[0];
-				case 4:
-					return t.getNumCannons()[1];
-				case 5:
-					return t.getNumCannons()[2];
-				case 6:
-					return t.getNumMissiles();
-				case 7:
-					return t.getNumICBMs();
-				case 8:
-					return t.getNumAntiMissiles();
-				case 9:
-					return t.getPrice();
-				default:
-					return null;
-				}
-			} else {
-				switch (columnIndex) {
-				case 0:
-					return rowIndex;
-				case 9:
-					return t.getPrice();
-				default:
-					return "¿?";
-				}
-			}
-
 		} else {
 			switch (columnIndex) {
 			case 0:
@@ -141,6 +143,7 @@ public class MapModel extends AbstractTableModel {
 				return "¿?";
 			}
 		}
+
 	}
 
 }
